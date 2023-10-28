@@ -25,7 +25,7 @@ export default {
         {
           Foto: "/images/default-product-image.png",
           Nombre: "Producto1",
-          Denominacion: "Lorem ipsum",
+          Denominacion: "Lorem ipsum Lorem ipsum Lorem ipsum",
           Precio: "10",
         },
         {

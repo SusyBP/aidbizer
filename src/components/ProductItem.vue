@@ -1,13 +1,13 @@
 <template>
   <div class="m-3">
-    <div class="row product-card rounded shadow-box p-4 mb-4">
-      <div class="col">
+    <div class="grid-container product-card rounded shadow-box p-4 mb-4">
+      <div class="grid-item-1">
         <img
           class="img-fluid product-img rounded"
           src="/images/default-product-image.png"
         />
       </div>
-      <div class="col product-info d-flex flex-column">
+      <div class="grid-item-2 product-info d-flex flex-column">
         <h5 class="product-name">{{ Nombre }}</h5>
         <div class="product-category">{{ Denominacion }}</div>
         <div class="product-price">${{ Precio }}</div>
@@ -35,16 +35,42 @@ export default {
 :root {
   --bea-green: #1f615a;
 }
-/* .grid-container {
+.grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
-  background-color: #2196F3;
+  grid-template-columns: 25% auto;
+  gap: 15px;
   padding: 1rem;
-}  */
+} 
+grid-item-1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+grid-item-2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+@media only screen and (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 50% auto;
+  } 
+}
+/* @media (min-width:350px) and (max-width:500px) {
+  .grid-container {
+    grid-template-columns: 33.3% 33.3% 33.3%;
+  } 
+  grid-item-1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  grid-item-2{
+      grid-column-start: 2;
+      grid-column-end: 4;
+  }
+} */
 
 .product-img {
-  max-width: 100px;
+  max-width: 100px; 
   border: 2px solid #bdbec0;
 }
 
@@ -61,8 +87,5 @@ export default {
   font-weight: bold;
   font-size: 1.5rem;
   margin-top: 0.5rem;
-}
-.product-info {
-  margin-left: -15rem;
 }
 </style>

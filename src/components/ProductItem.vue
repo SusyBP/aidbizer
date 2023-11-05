@@ -5,6 +5,7 @@
         <img
           class="img-fluid product-img rounded"
           src="/images/default-product-image.png"
+          alt="alt"
         />
       </div>
       <div class="grid-item-2 product-info d-flex flex-column">
@@ -23,7 +24,7 @@ export default {
     Nombre: String,
     Denominacion: String,
     Descripcion: String,
-    Precio: Number,
+    Precio: String,
     Foto: String,
   },
   data() {
@@ -37,7 +38,7 @@ export default {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 50% auto;
   gap: 15px;
   padding: 1rem;
 } 
@@ -50,27 +51,55 @@ grid-item-2{
     grid-column-end: 3;
 }
 
-@media only screen and (max-width: 500px) {
+@media (min-width: 200px) and (max-width: 300px){
   .grid-container {
-    grid-template-columns: 50% auto;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+    padding: 1rem;
   } 
 }
-/* @media (min-width:350px) and (max-width:500px) {
+
+@media (min-width: 430px) and (max-width: 576px)  {
   .grid-container {
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    display: grid;
+    grid-template-columns: 25% auto;
+    gap: 15px;
+    padding: 1rem;
   } 
+
   grid-item-1{
     grid-column-start: 1;
     grid-column-end: 2;
   }
+
   grid-item-2{
       grid-column-start: 2;
       grid-column-end: 4;
   }
-} */
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 15px;
+    padding: 1rem;
+  } 
+}
+
+@media (min-width: 1000px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: 25% auto;
+    gap: 15px;
+    padding: 1rem;
+  } 
+}
 
 .product-img {
-  max-width: 100px; 
+  width: 100%;
+  max-width: 150px; 
   border: 2px solid #bdbec0;
 }
 

@@ -17,37 +17,51 @@
 </template>
 <script>
 import ProductItem from "./ProductItem.vue";
+   
+
 export default {
   name: "ProductList",
   data() {
     return {
-      products: [
-        {
-          Foto: "/images/default-product-image.png",
-          Nombre: "Producto1",
-          Denominacion: "Aretes con argolla plateada ...",
-          Precio: "10",
-        },
-        {
-          Foto: "favicon.ico",
-          Nombre: "Producto2",
-          Denominacion: "Lorem ipsum ...",
-          Precio: "10",
-        },
-        {
-          Foto: "favicon.ico",
-          Nombre: "Producto3",
-          Denominacion: "Lorem ipsum ...",
-          Precio: "10",
-        },
-        {
-          Foto: "favicon.ico",
-          Nombre: "Producto4",
-          Denominacion: "Lorem ipsum ...",
-          Precio: "10",
-        },
-      ],
+      products : []
+      // products: [
+      //   {
+      //     Foto: "/images/default-product-image.png",
+      //     Nombre: "Producto1",
+      //     Denominacion: "Aretes con argolla plateada ...",
+      //     Precio: "10",
+      //   },
+      //   {
+      //     Foto: "favicon.ico",
+      //     Nombre: "Producto2",
+      //     Denominacion: "Lorem ipsum ...",
+      //     Precio: "10",
+      //   },
+      //   {
+      //     Foto: "favicon.ico",
+      //     Nombre: "Producto3",
+      //     Denominacion: "Lorem ipsum ...",
+      //     Precio: "10",
+      //   },
+      //   {
+      //     Foto: "favicon.ico",
+      //     Nombre: "Producto4",
+      //     Denominacion: "Lorem ipsum ...",
+      //     Precio: "10",
+      //   },
+      // ],
     };
+  },
+  beforeMount(){
+    this.getProducts();
+  },
+  methods:{
+    async getProducts(){
+      const res = await fetch('http://beassistant-001-site1.etempurl.com/api/Productos?idEmpresa=11');
+      const data = await res.json();
+      this.products = data;
+      // console.log(data)
+    }
   },
   components: {
     ProductItem,

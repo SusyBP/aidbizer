@@ -24,7 +24,7 @@ export default {
     Nombre: String,
     Denominacion: String,
     Descripcion: String,
-    Precio: String,
+    Precio: Number,
     Foto: String,
   },
   data() {

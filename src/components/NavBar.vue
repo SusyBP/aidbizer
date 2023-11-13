@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
       <img src="/images/iconBEA.png" alt="Avatar Logo"> 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -9,15 +9,17 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
+        
+          <!-- <li><a :to="{ name: 'Dashboard' }" class="nav-item nav-link">Dashboard</a></li> -->
+          <li><router-link :to="{ name: 'Dashboard' }" class="nav-item nav-link">Dashboard</router-link></li>
+      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Products</a></li>
-            <li><a class="dropdown-item" href="#">Sales</a></li>
+          <ul class="dropdown-menu"> 
+            <!-- <li><router-link :to="{ name: 'Products' }" class="dropdown-item" target="_blank">Products</router-link></li> -->
+            <li><a class="dropdown-item" href="/bea-vue-vite/products/">Products</a></li>
             <li><a class="dropdown-item" href="#">Inventory</a></li>
+            <li><a class="dropdown-item" href="#">Sales</a></li>
             <li><a class="dropdown-item" href="#">Income</a></li>
             <li><a class="dropdown-item" href="#">Expenses</a></li>
           </ul>

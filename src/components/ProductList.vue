@@ -52,15 +52,15 @@ export default {
       // ],
     };
   },
-  beforeMount(){
+  created(){
     this.getProducts();
   },
   methods:{
     async getProducts(){
-      const res = await fetch('http://beassistant-001-site1.etempurl.com/api/Productos?idEmpresa=11');
+      const res = await fetch('/api');
       const data = await res.json();
       this.products = data;
-      // console.log(data)
+      console.log(data)
     }
   },
   components: {

@@ -5,4 +5,16 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: '/bea-vue-vite/',
   plugins: [vue()],
+  // server: {
+  //   proxy: {
+  //   'http://localhost:8080/api': {
+  //     target: 'http://beassistant-001-site1.etempurl.com/api/Productos?idEmpresa=11',
+  //     changeOrigin: true,
+  //     secure: false,
+  //     rewrite: (path) => path.replace(/^\/api/, '')
+  //   },
+  //   cors:true
+  //   },
+  // }
+
 })

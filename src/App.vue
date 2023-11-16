@@ -1,7 +1,6 @@
 <template>
-  <NavBar></NavBar>
-  <!-- <ProductList></ProductList> -->
-  <DashboardView></DashboardView>
+<NavBar></NavBar>
+ <router-view></router-view>
 </template>
 
 <script>

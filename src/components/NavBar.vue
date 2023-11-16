@@ -16,8 +16,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Manage</a>
           <ul class="dropdown-menu"> 
-            <!-- <li><router-link :to="{ name: 'Products' }" class="dropdown-item" target="_blank">Products</router-link></li> -->
-            <li><a class="dropdown-item" href="/bea-vue-vite/products/">Products</a></li>
+            <li><router-link to="/bea-vue-vite/products/" class="dropdown-item" >Products</router-link></li>
+            <!-- <li><a class="dropdown-item" href="/bea-vue-vite/products/">Products</a></li> -->
             <li><a class="dropdown-item" href="#">Inventory</a></li>
             <li><a class="dropdown-item" href="#">Sales</a></li>
             <li><a class="dropdown-item" href="#">Income</a></li>

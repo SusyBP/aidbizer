@@ -1,20 +1,28 @@
 // router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
+import ProductsList from '../components/ProductList.vue'
 import DashboardView from '../components/DashboardView.vue'
-import ProductList from '../components/ProductList.vue'
 
-const routes = [
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
     {
         path: '/bea-vue-vite/',
         name: 'Dashboard',
         component: DashboardView
     },
     {
-        path: '/bea-vue-vite/products/',
+        path: '/bea-vue-vite/products',
         name: 'Products',
-        component: ProductList
-    }
-]
+        component: ProductsList
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'error404',
+      component: () => import('../views/Error404View.vue')
+    },    
+  ]
+})
 
-const router = createRouter({ history: createWebHistory(), routes })
 export default router

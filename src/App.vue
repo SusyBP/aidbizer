@@ -1,6 +1,7 @@
 <template>
 <NavBar></NavBar>
  <router-view></router-view>
+ <FooterItem></FooterItem>
 </template>
 
 <script>
@@ -8,6 +9,7 @@
 import NavBar from "./components/NavBar.vue";
 import ProductList from "./components/ProductList.vue";
 import DashboardView from "./components/DashboardView.vue";
+import FooterItem from "./components/FooterItem.vue";
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -31,7 +33,8 @@ export default {
     NavBar,
     ProductList,
     DashboardView,
-    FontAwesomeIcon
+    FontAwesomeIcon,
+    FooterItem,
   },
   data() {
     return {};

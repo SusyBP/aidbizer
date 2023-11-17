@@ -1,12 +1,37 @@
 <template>
     <div class="chart">
-        <h5>Lorem ipsum solor sit amet Lorem ipsum solor sit amet Lorem ipsum solor sit amet Lorem ipsum solor sit amet</h5>
-        <button class="btn btn-success">Click</button>
+        <img class="img image-fluid" :src="Image" :alt="Alt">
     </div>
 </template>
 <script>
 export default{
-    name: 'ChartItem'
+    name: 'ChartItem',
+    props: {
+    Image: String,
+    Alt: String,
+  },
 }
 </script>
+<style scoped>
+.img {
+  width: 100%;
+  max-width: 300px; 
+  /* height: ; */
+}
+
+[class^='chart']{
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #fff;
+  border-radius: .5rem;
+  padding: .5rem 1rem;
+}
+</style>
 

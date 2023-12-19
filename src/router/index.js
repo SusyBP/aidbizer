@@ -8,7 +8,7 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-        path: '/bea-vue-vite/',
+        path: '/bea-vue-vite',
         name: 'Dashboard',
         component: DashboardView
     },

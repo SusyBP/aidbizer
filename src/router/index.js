@@ -18,6 +18,21 @@ const router = createRouter({
         component: ProductsList
     },
     {
+      path: '/bea-vue-vite/sales',
+      name: 'Sales',
+      component: () => import('../views/Sales.vue')
+    },
+    {
+      path: '/bea-vue-vite/contacts',
+      name: 'Contacts',
+      component: () => import('../views/Contacts.vue')
+    },
+    {
+      path: '/bea-vue-vite/expenses',
+      name: 'Expenses',
+      component: () => import('../views/Expenses.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'error404',
       component: () => import('../views/Error404View.vue')

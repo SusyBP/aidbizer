@@ -12,6 +12,7 @@ import ProductList from "./components/ProductList.vue";
 import DashboardView from "./components/DashboardView.vue";
 import FooterItem from "./components/FooterItem.vue";
 import Sidebar  from "./components/Sidebar.vue";
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -37,9 +38,11 @@ library.add(faBars)
 export default {
   name: "App",
   components: {
+	// NavBar,
     Sidebar,
     ProductList,
     DashboardView,
+	// Contacts,
     FontAwesomeIcon,
     FooterItem,
   },
@@ -51,11 +54,11 @@ export default {
 
 <style lang="scss">
 :root {
-	--primary: #4ade80;
-	--primary-alt: #22c55e;
+	--primary:#00ffe5;// #25cbbb;
+	--primary-alt: #00ffe5;//#22c55e;
 	--grey: #64748b;
-	--dark: #1e293b;
-	--dark-alt: #334155;
+	--dark: rgb(36, 63, 61);//#1e293b;
+	--dark-alt: #1f615a;//rgb(36, 63, 61);//#334155;
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
 }
@@ -84,8 +87,7 @@ button {
 		// flex: 1 1;
 		// padding: 2rem;
 
-		@media (max-width: 1024px) {
-			// padding-left: 3rem;
+		@media (max-width: 1023px) {
 			flex-direction: column;
 		}
 }

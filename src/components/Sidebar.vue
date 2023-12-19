@@ -4,24 +4,22 @@
 			<img :src="logoURL" alt="Vue" /> 
 		</div>
 		
-		<!-- <div class="menu-toggle-wrap">
+		<div class="menu-toggle-wrap">
 			<button class="menu-toggle" @click="ToggleMenu">
 				<span class="material-icons"><font-awesome-icon :icon="['fas', 'circle-chevron-right']" /></span>
 			</button>
-		</div> -->
+		</div>
 		<div class="menu mt-1">
 			<button class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
 				<span class="material-icons"><font-awesome-icon :icon="['fas', 'bars']" /></span>
 				<span class="text">  Menu</span>
     		</button>
 	<div class="collapse navbar-collapse show" id="collapsibleNavbar">
-		<div>	
-				
+		<div>					
 			<router-link to="/bea-vue-vite" class="button">
 				<span class="material-icons"><font-awesome-icon :icon="['fas', 'house']" /></span>
 				<span class="text">Home</span>
-			</router-link>
-		
+			</router-link>		
 			<router-link to="/bea-vue-vite/products" class="button">
 				<span class="material-icons"><font-awesome-icon :icon="['fas', 'boxes-stacked']" /></span>
 				<span class="text">Products</span>
@@ -37,8 +35,7 @@
 			<router-link to="/settings" class="button">
 				<span class="material-icons"><font-awesome-icon :icon="['fas', 'dollar-sign']" /></span>
 				<span class="text">Expenses</span>
-			</router-link>	
-		
+			</router-link>			
 		</div>
 		</div>
 		

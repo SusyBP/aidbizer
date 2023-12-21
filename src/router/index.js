@@ -23,14 +23,54 @@ const router = createRouter({
       component: () => import('../views/Sales.vue')
     },
     {
-      path: '/bea-vue-vite/contacts',
-      name: 'Contacts',
-      component: () => import('../views/Contacts.vue')
+      path: '/bea-vue-vite/orders',
+      name: 'Orders',
+      component: () => import('../views/Orders.vue')
     },
     {
       path: '/bea-vue-vite/expenses',
       name: 'Expenses',
       component: () => import('../views/Expenses.vue')
+    },
+    {
+      path: '/bea-vue-vite/stock',
+      name: 'Stock',//stock de productos
+      component: () => import('../views/Stock.vue')
+    },
+    {
+      path: '/bea-vue-vite/inventory',
+      name: 'Inventory',//stock de materias primas
+      component: () => import('../views/Inventory.vue')
+    },
+    {
+      path: '/bea-vue-vite/production-processes',
+      name: 'ProductionProcesses',//stock de materias primas
+      component: () => import('../views/ProductionProcesses.vue')
+    },
+    {
+      path: '/bea-vue-vite/invoices',
+      name: 'Invoices',
+      component: () => import('../views/Invoices.vue')
+    },
+    {
+      path: '/bea-vue-vite/quote',
+      name: 'Quote',
+      component: () => import('../views/Quote.vue')
+    },
+    {
+      path: '/bea-vue-vite/stats',
+      name: 'Stats',
+      component: () => import('../views/Stats.vue')
+    },
+    {
+      path: '/bea-vue-vite/balance',
+      name: 'Balance',
+      component: () => import('../views/Balance.vue')
+    },
+    {
+      path: '/bea-vue-vite/contacts',
+      name: 'Contacts',
+      component: () => import('../views/Contacts.vue')
     },
     {
       path: '/:pathMatch(.*)*',

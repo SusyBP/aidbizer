@@ -20,7 +20,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUsers, faMoneyBill, faChartLine, faPercentage, faHandHoldingDollar, faCircleChevronRight, faBoxesStacked, faHouse, faDollarSign, faUserGroup, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faUsers, faMoneyBill, faChartLine,
+	 faPercentage, faHandHoldingDollar, faCircleChevronRight,
+	  faBoxesStacked, faHouse, faDollarSign, faUserGroup,
+	   faBars, faCartArrowDown, faCalculator, faWarehouse,
+	    faBalanceScale, faClipboardList, faAngleDown,
+		 faTableCells, faMoneyBillTransfer, faCoins,
+		  faTimeline } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUsers)
@@ -34,6 +40,16 @@ library.add(faHouse)
 library.add(faDollarSign)
 library.add(faUserGroup)
 library.add(faBars)
+library.add(faCartArrowDown)
+library.add(faCalculator)
+library.add(faWarehouse)
+library.add(faBalanceScale)
+library.add(faClipboardList)
+library.add(faAngleDown)
+library.add(faTableCells)
+library.add(faMoneyBillTransfer)
+library.add(faCoins)
+library.add(faTimeline)
 
 export default {
   name: "App",
@@ -54,11 +70,12 @@ export default {
 
 <style lang="scss">
 :root {
+	--theme-green: #0c5f5f;
 	--primary:#00ffe5;// #25cbbb;
 	--primary-alt: #00ffe5;//#22c55e;
 	--grey: #64748b;
 	--dark: rgb(36, 63, 61);//#1e293b;
-	--dark-alt: #1f615a;//rgb(36, 63, 61);//#334155;
+	--dark-alt: #1f6f6f;//rgb(36, 63, 61);//#334155;
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
 }

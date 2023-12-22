@@ -32,6 +32,7 @@ export default{
   border: 1px solid #fff;
   border-radius: .5rem;
   padding: .5rem 1rem;
+  margin-bottom: 1rem;
 }
 </style>
 

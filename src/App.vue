@@ -26,7 +26,11 @@ import { faUsers, faMoneyBill, faChartLine,
 	   faBars, faCartArrowDown, faCalculator, faWarehouse,
 	    faBalanceScale, faClipboardList, faAngleDown,
 		 faTableCells, faMoneyBillTransfer, faCoins,
-		  faTimeline } from '@fortawesome/free-solid-svg-icons'
+		  faTimeline, 
+      faUser,
+      faCircleUser,
+      faMagnifyingGlass,
+      faEllipsisVertical} from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUsers)
@@ -50,6 +54,10 @@ library.add(faTableCells)
 library.add(faMoneyBillTransfer)
 library.add(faCoins)
 library.add(faTimeline)
+library.add(faUser)
+library.add(faCircleUser)
+library.add(faMagnifyingGlass)
+library.add(faEllipsisVertical)
 
 export default {
   name: "App",
@@ -78,6 +86,11 @@ export default {
 	--dark-alt: #1f6f6f;//rgb(36, 63, 61);//#334155;
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
+	--gold-yellow_1: #af6c0c;
+	--gold-yellow_2: #bf7c1c;
+	--gold-yellow_3: #cf8c2c;
+	--gold-yellow_4: #df9c3c;
+	--gold-yellow_5: #efac4c;
 }
 
 * {
@@ -99,12 +112,15 @@ button {
 	background: none;
 }
 
+.btn-theme{
+	background-color: var(--theme-green) !important;
+}
+
 .app {
 	display: flex;
-		// flex: 1 1;
-		// padding: 2rem;
+		flex: 1 1;
 
-		@media (max-width: 1023px) {
+		@media (max-width: 768px) {
 			flex-direction: column;
 		}
 }

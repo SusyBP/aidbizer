@@ -4,15 +4,15 @@
 					<img :src="logoURL" alt="Vue" /> 
 				</div>
 				
-				<div class="menu-expand-button">
+				<!-- <div class="menu-expand-button">
 					<button class="menu-toggle" @click="ToggleMenu">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'circle-chevron-right']" /></span>
 					</button>
-				</div>
+				</div> -->
 				<div class="menu">
 					<div class="navbar-toggler-wrapper" >
 					<button class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-						<span class="material-icons"><font-awesome-icon :icon="['fas', 'bars']" /></span>
+						<span class="material-icons"><font-awesome-icon :icon="['fas', 'ellipsis-vertical']" /></span>
 						<span class="text"></span>
 					</button>
 				</div>
@@ -106,7 +106,7 @@
 
 		<style lang="scss" scoped>
 		aside {
-			@media (max-width: 1023px) {
+			@media (max-width: 768px) {
 				// position: absolute;
 				// z-index: 99;
 				min-height: auto;
@@ -124,7 +124,7 @@
 				}
 		}
 
-			@media (min-width: 1023px) {
+			@media (min-width: 768px) {
 
 			.navbar-toggler-wrapper{
 				margin-right: 9rem;
@@ -222,7 +222,7 @@
 
 					.collapse-submenu-arrow {
 						margin-left: 1rem;
-						margin-top: 0.5rem;
+						margin-top: 0.2rem;
 						}
 					.text {
 						color: var(--light);
@@ -261,13 +261,6 @@
 			&.is-expanded {
 				width: var(--sidebar-width);
 
-				.menu-expand-button {
-					top: -4.5rem;
-					
-					.menu-toggle {
-						transform: rotate(-180deg);
-					}
-				}
 
 				h3, .button .text {
 					opacity: 1;
@@ -289,11 +282,6 @@
 					margin-bottom: 1rem;
 
 				}
-			&.not-expanded{
-				.menu-expand-button {
-					left: -1.5rem;
-				}
-			}
 
 			.submenu-item{
 				padding-left: 2rem !important;

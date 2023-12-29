@@ -1,1 +1,0 @@
-import{_ as s,o as e,c as o,a as t}from"./index-ed6a54ae.js";const a={},c={id:"stats-page"},n=t("h1",null,"Stats",-1),_=t("p",null,"This is the Stats page",-1),r=[n,_];function i(d,h){return e(),o("main",c,r)}const p=s(a,[["render",i]]);export{p as default};

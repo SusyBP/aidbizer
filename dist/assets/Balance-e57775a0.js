@@ -1,0 +1,1 @@
+import{_ as a,o as c,c as n,b as e}from"./index-d45f0998.js";const s={},t={id:"balance-page"},o=e("h1",null,"Balance",-1),_=e("p",null,"This is the Balance page",-1),l=[o,_];function r(i,d){return c(),n("main",t,l)}const p=a(s,[["render",r]]);export{p as default};

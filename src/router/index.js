@@ -16,78 +16,78 @@ const router = createRouter({
       component: () => import('../components/MainComponent.vue'),
       children: [
           {
-              path: 'home',
+              path: 'bea-vue-vite/home',
               name: 'Home',
               component: Home,
               auth: true
           },
           // {
-          //     path: 'dashboard',
+          //     path: 'bea-vue-vite/dashboard',
           //     name: 'Dashboard',  
           //     component: DashboardView
           // },
           {
-              path: 'products',
+              path: 'bea-vue-vite/products',
               name: 'Products',
               component: () => import('../views/ProductsView.vue'),
               auth: true
           },
           {
-            path: 'sales',
+            path: 'bea-vue-vite/sales',
             name: 'Sales',
             component: () => import('../views/Sales.vue'),
             auth: true
           },
           {
-            path: 'orders',
+            path: 'bea-vue-vite/orders',
             name: 'Orders',
             component: () => import('../views/Orders.vue'),
             auth: true
           },
           {
-            path: 'expenses',
+            path: 'bea-vue-vite/expenses',
             name: 'Expenses',
             component: () => import('../views/Expenses.vue'),
             auth: true
           },
           {
-            path: 'stock',
+            path: 'bea-vue-vite/stock',
             name: 'Stock',//stock de productos
             component: () => import('../views/Stock.vue'),
             auth: true
           },
           {
-            path: 'inventory',
+            path: 'bea-vue-vite/inventory',
             name: 'Inventory',//stock de materias primas
             component: () => import('../views/Inventory.vue'),
             auth: true
           },
           {
-            path: 'production-processes',
+            path: 'bea-vue-vite/production-processes',
             name: 'ProductionProcesses',//stock de materias primas
             component: () => import('../views/ProductionProcesses.vue'),
             auth: true
           },
           {
-            path: 'invoices',
+            path: 'bea-vue-vite/invoices',
             name: 'Invoices',
             component: () => import('../views/Invoices.vue'),
             auth: true
           },
           {
-            path: 'quote',
+            path: 'bea-vue-vite/quote',
             name: 'Quote',
             component: () => import('../views/Quote.vue'),
             auth: true
           },
           {
-            path: 'balance',
+            path: 'bea-vue-vite/balance',
             name: 'Balance',
             component: () => import('../views/Balance.vue'),
             auth: true
           },
           {
-            path: 'contacts',
+            path: 'bea-vue-vite/contacts',
             name: 'Contacts',
             component: () => import('../views/Contacts.vue'),
             auth: true

@@ -1,0 +1,1 @@
+import{_ as s,o,c,b as e}from"./index-5edb25f6.js";const n={},t={id:"invoices-page"},i=e("h1",null,"Invoices",-1),_=e("p",null,"This is the invoices page",-1),a=[i,_];function r(d,h){return o(),c("main",t,a)}const p=s(n,[["render",r]]);export{p as default};

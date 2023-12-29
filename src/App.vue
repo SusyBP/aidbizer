@@ -1,7 +1,7 @@
 <template>
- <!-- <Sidebar @logout="logout"></Sidebar-->
- <router-view></router-view>
- <!-- <MainComponent @render="render"></MainComponent> -->
+	<!-- <Sidebar @logout="logout"></Sidebar-->
+	<router-view></router-view>
+	<!-- <MainComponent @render="render"></MainComponent> -->
 </template>
 
 <script setup>
@@ -15,44 +15,38 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faUsers, faMoneyBill, faChartLine,
-	 faPercentage, faHandHoldingDollar, faCircleChevronRight,
-	  faBoxesStacked, faHouse, faDollarSign, faUserGroup,
-	   faBars, faCartArrowDown, faCalculator, faWarehouse,
-	    faBalanceScale, faClipboardList, faAngleDown,
-		 faTableCells, faMoneyBillTransfer, faCoins,
-		  faTimeline, 
-      faUser,
-      faCircleUser,
-      faMagnifyingGlass,
-      faEllipsisVertical,
-      faArrowRightFromBracket,
-      faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons'
+import {
+	faUsers, faMoneyBill, faChartLine,
+	faPercentage, faHandHoldingDollar, faCircleChevronRight,
+	faBoxesStacked, faHouse, faDollarSign, faUserGroup,
+	faBars, faCartArrowDown, faCalculator, faWarehouse,
+	faBalanceScale, faClipboardList, faAngleDown,
+	faTableCells, faMoneyBillTransfer, faCoins,
+	faTimeline,
+	faUser,
+	faCircleUser,
+	faMagnifyingGlass,
+	faEllipsisVertical,
+	faArrowRightFromBracket,
+	faFileInvoiceDollar,
+	faQuestionCircle
+} from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUsers, faMoneyBill, faChartLine,
-	 faPercentage, faHandHoldingDollar, faCircleChevronRight,
-	  faBoxesStacked, faHouse, faDollarSign, faUserGroup,
-	   faBars, faCartArrowDown, faCalculator, faWarehouse,
-	    faBalanceScale, faClipboardList, faAngleDown,
-		 faTableCells, faMoneyBillTransfer, faCoins,
-		  faTimeline, 
-      faUser,
-      faCircleUser,
-      faMagnifyingGlass,
-      faEllipsisVertical,
-	  faArrowRightFromBracket,
-	  faFileInvoiceDollar)
-
-// const componentKey = ref(0);
-
-// const forceRerender = () => {
-// 	console.log("forcerender func")
-//   componentKey.value += 1;
-// };
-// const render = ()=>{
-	// window.location.reload();
-// }
+	faPercentage, faHandHoldingDollar, faCircleChevronRight,
+	faBoxesStacked, faHouse, faDollarSign, faUserGroup,
+	faBars, faCartArrowDown, faCalculator, faWarehouse,
+	faBalanceScale, faClipboardList, faAngleDown,
+	faTableCells, faMoneyBillTransfer, faCoins,
+	faTimeline,
+	faUser,
+	faCircleUser,
+	faMagnifyingGlass,
+	faEllipsisVertical,
+	faArrowRightFromBracket,
+	faFileInvoiceDollar,
+	faQuestionCircle)
 
 </script>
 
@@ -74,10 +68,10 @@ library.add(faUsers, faMoneyBill, faChartLine,
 	--gold-yellow_5: #efac4c;
 	--gold-yellow_6: #ffbc5c;
 
-	--primary:#00ffe5;// #25cbbb;
-	--primary-alt: #00ffe5;//#22c55e;
+	--primary: #00ffe5; // #25cbbb;
+	--primary-alt: #00ffe5; //#22c55e;
 	--grey: #64748b;
-	--dark: rgb(36, 63, 61);//#1e293b;
+	--dark: rgb(36, 63, 61); //#1e293b;
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
 }
@@ -101,16 +95,16 @@ button {
 	background: none;
 }
 
-.btn-theme{
+.btn-theme {
 	background-color: var(--theme-green) !important;
 }
 
 .app {
 	display: flex;
-		flex: 1 1;
+	flex: 1 1;
 
-		@media (max-width: 768px) {
-			flex-direction: column;
-		}
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 }
 </style>

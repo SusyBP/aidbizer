@@ -1,0 +1,1 @@
+import{_ as t,o,c as s,b as e}from"./index-da45e60c.js";const c={},n={id:"quote-page"},_=e("h1",null,"Quote",-1),a=e("p",null,"This is the Quote page",-1),r=[_,a];function i(d,u){return o(),s("main",n,r)}const l=t(c,[["render",i]]);export{l as default};

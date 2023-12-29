@@ -63,7 +63,7 @@
 					</router-link>	
 					<router-link :to="{ name: 'Expenses'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'dollar-sign']" /></span>
-						<span class="text">Expenses</span>
+						<span class="text">Expenses</span>x
 					</router-link>	
 					<router-link :to="{ name: 'Debts'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'coins']" /></span>
@@ -82,10 +82,6 @@
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'calculator']" /></span>
 						<span class="text">Quote</span>
 					</router-link>
-					<button class="button" @click="logout">
-						<span class="material-icons"><font-awesome-icon :icon="['fas', 'fa-arrow-right-from-bracket']" /></span>
-						<span class="text">Log out</span>
-					</button>	
 				</div>
 				</div>
 				
@@ -95,7 +91,7 @@
 		</template>
 
 		<script setup>
-		import { ref, defineEmits } from 'vue'
+		import { ref } from 'vue'
 		import router from '../router';
 		/* import font awesome icon component */
 		import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -110,13 +106,7 @@
 			is_expanded.value = !is_expanded.value
 			localStorage.setItem("is_expanded", is_expanded.value)
 		}
-		const emit = defineEmits(["logout"]);
 
-		const logout = ()=>{
-            emit("logout")
-            // localStorage.setItem("loggedin", "true")
-            router.push({name: "Login"})
-        }
 		</script>
 
 		<style lang="scss" scoped>
@@ -157,7 +147,7 @@
 				.menu-toggle {
 					transition: 0.2s ease-in-out;
 					.material-icons {
-						font-size: 1.5rem;
+						font-size: 1rem;
 						color: var(--light);
 						transition: 0.2s ease-out;
 					}
@@ -230,7 +220,7 @@
 					padding: 0.5rem 1rem;
 
 					.material-icons {
-						font-size: 1.5rem;
+						font-size: 1rem;
 						color: var(--light);
 						transition: 0.2s ease-in-out;
 					}

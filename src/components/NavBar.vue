@@ -52,12 +52,11 @@
 </template>
 
 <script>
-
-
 export default {
   name: "NavBar",
 };
 </script>
+
 <style scope>
 .flex-navbar{
 @media (min-width:600px){

@@ -3,8 +3,8 @@
 				<div class="logo">
 					<img :src="logoURL" alt="Vue" /> 
 				</div>
-				
-				<!-- <div class="menu-expand-button">
+<!-- 				
+				<div class="menu-expand-button">
 					<button class="menu-toggle" @click="ToggleMenu">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'circle-chevron-right']" /></span>
 					</button>
@@ -18,11 +18,11 @@
 				</div>
 				<div class="collapse navbar-collapse show" id="collapsibleNavbar">
 				<div>					
-					<router-link to="/bea-vue-vite" class="button">
+					<router-link to="/home" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'table-cells']" /></span>
 						<span class="text">Dashboard</span>
 					</router-link>	
-					<router-link to="/bea-vue-vite/contacts" class="button">
+					<router-link to="/contacts" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'user-group']" /></span>
 						<span class="text">Contacts</span>
 					</router-link>	
@@ -31,23 +31,23 @@
 						<span class="text">Management</span><span class="material-icons collapse-submenu-arrow"><font-awesome-icon :icon="['fas', 'angle-down']" /></span>
 					</div>	
 				<div class="collapse navbar-collapse" id="collapsibleNavbar2">
-					<router-link to="/bea-vue-vite/products" class="button submenu-item">
+					<router-link :to="{name:'Products'}" class="button submenu-item">
 						<span class="material-icons ml-4"><font-awesome-icon :icon="['fas', 'boxes-stacked']" /></span>
 						<span class="text">Products</span>
 					</router-link>
-					<router-link to="/bea-vue-vite/sales" class="button submenu-item">
+					<router-link to="/sales" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'hand-holding-dollar']" /></span>
 						<span class="text">Sales</span>
 					</router-link>
-					<router-link to="/bea-vue-vite/orders" class="button submenu-item">
+					<router-link to="/orders" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'cart-arrow-down']" /></span>
 						<span class="text">Orders</span>
 					</router-link>
-					<router-link to="/bea-vue-vite/inventory" class="button submenu-item">
+					<router-link to="/inventory" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'clipboard-list']" /></span>
 						<span class="text">Inventory</span>
 					</router-link>
-					<router-link to="/bea-vue-vite/stock" class="button submenu-item">
+					<router-link to="/stock" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'warehouse']" /></span>
 						<span class="text">Stock</span>
 					</router-link>
@@ -57,28 +57,31 @@
 						<span class="text">Finances</span><span class="material-icons collapse-submenu-arrow"><font-awesome-icon :icon="['fas', 'angle-down']" /></span>
 					</div>	
 				<div class="collapse navbar-collapse" id="collapsibleNavbar3">
-					<router-link to="/bea-vue-vite/expenses" class="button submenu-item">
+					<router-link to="/expenses" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'dollar-sign']" /></span>
 						<span class="text">Expenses</span>
 					</router-link>	
-					<router-link to="/bea-vue-vite/debts" class="button submenu-item">
+					<router-link to="/debts" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'coins']" /></span>
 						<span class="text">Debts</span>
 					</router-link>
-					<router-link to="/bea-vue-vite/balance" class="button submenu-item">
+					<router-link to="/balance" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'balance-scale']" /></span>
 						<span class="text">Balance</span>
 					</router-link>		
 				</div>		
-					<router-link to="/bea-vue-vite/production-processes" class="button">
+					<router-link to="/production-processes" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'timeline']" /></span>
 						<span class="text">Workflow</span>
-					</router-link>
-					
-					<router-link to="/bea-vue-vite/quote" class="button">
+					</router-link>					
+					<router-link to="/quote" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'calculator']" /></span>
 						<span class="text">Quote</span>
-					</router-link>	
+					</router-link>
+					<button class="button" @click="logout">
+						<span class="material-icons"><font-awesome-icon :icon="['fas', 'fa-arrow-right-from-bracket']" /></span>
+						<span class="text">Log out</span>
+					</button>	
 				</div>
 				</div>
 				
@@ -88,7 +91,8 @@
 		</template>
 
 		<script setup>
-		import { ref } from 'vue'
+		import { ref, defineEmits } from 'vue'
+		import router from '../router';
 		/* import font awesome icon component */
 		import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -97,11 +101,18 @@
 		import logoURL from "../assets/images/iconBEA.png"
 
 		const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
-
+		
 		const ToggleMenu = () => {
 			is_expanded.value = !is_expanded.value
 			localStorage.setItem("is_expanded", is_expanded.value)
 		}
+		const emit = defineEmits(["logout"]);
+
+		const logout = ()=>{
+            emit("logout")
+            // localStorage.setItem("loggedin", "true")
+            router.push({name: "Login"})
+        }
 		</script>
 
 		<style lang="scss" scoped>

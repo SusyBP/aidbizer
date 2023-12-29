@@ -1,6 +1,6 @@
 <template>
     <Sidebar @logout="logout"></Sidebar>
-    <router-view @login="login"></router-view>
+    <router-view></router-view>
 </template>
 
 <script setup>

@@ -18,11 +18,11 @@
 				</div>
 				<div class="collapse navbar-collapse show" id="collapsibleNavbar">
 				<div>					
-					<router-link to="/home" class="button">
+					<router-link :to="{ name: 'Home'}" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'table-cells']" /></span>
 						<span class="text">Dashboard</span>
 					</router-link>	
-					<router-link to="/contacts" class="button">
+					<router-link :to="{ name: 'Contacts'}" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'user-group']" /></span>
 						<span class="text">Contacts</span>
 					</router-link>	
@@ -35,19 +35,19 @@
 						<span class="material-icons ml-4"><font-awesome-icon :icon="['fas', 'boxes-stacked']" /></span>
 						<span class="text">Products</span>
 					</router-link>
-					<router-link to="/sales" class="button submenu-item">
+					<router-link :to="{ name: 'Sales'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'hand-holding-dollar']" /></span>
 						<span class="text">Sales</span>
 					</router-link>
-					<router-link to="/orders" class="button submenu-item">
+					<router-link :to="{ name: 'Orders'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'cart-arrow-down']" /></span>
 						<span class="text">Orders</span>
 					</router-link>
-					<router-link to="/inventory" class="button submenu-item">
+					<router-link :to="{ name: 'Inventory'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'clipboard-list']" /></span>
 						<span class="text">Inventory</span>
 					</router-link>
-					<router-link to="/stock" class="button submenu-item">
+					<router-link :to="{ name: 'Stock'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'warehouse']" /></span>
 						<span class="text">Stock</span>
 					</router-link>
@@ -57,24 +57,28 @@
 						<span class="text">Finances</span><span class="material-icons collapse-submenu-arrow"><font-awesome-icon :icon="['fas', 'angle-down']" /></span>
 					</div>	
 				<div class="collapse navbar-collapse" id="collapsibleNavbar3">
-					<router-link to="/expenses" class="button submenu-item">
+					<router-link :to="{ name: 'Invoices'}" class="button submenu-item">
+						<span class="material-icons"><font-awesome-icon :icon="['fas', 'file-invoice-dollar']" /></span>
+						<span class="text">Invoices</span>
+					</router-link>	
+					<router-link :to="{ name: 'Expenses'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'dollar-sign']" /></span>
 						<span class="text">Expenses</span>
 					</router-link>	
-					<router-link to="/debts" class="button submenu-item">
+					<router-link :to="{ name: 'Debts'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'coins']" /></span>
 						<span class="text">Debts</span>
 					</router-link>
-					<router-link to="/balance" class="button submenu-item">
+					<router-link :to="{ name: 'Balance'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'balance-scale']" /></span>
 						<span class="text">Balance</span>
 					</router-link>		
 				</div>		
-					<router-link to="/production-processes" class="button">
+					<router-link :to="{name:'ProductionProcesses'}" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'timeline']" /></span>
 						<span class="text">Workflow</span>
 					</router-link>					
-					<router-link to="/quote" class="button">
+					<router-link :to="{name:'Quote'}" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'calculator']" /></span>
 						<span class="text">Quote</span>
 					</router-link>

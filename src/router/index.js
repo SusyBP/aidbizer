@@ -21,11 +21,11 @@ const router = createRouter({
               component: Home,
               auth: true
           },
-          // {
-          //     path: '/bea-vue-vite/dashboard',
-          //     name: 'Dashboard',  
-          //     component: DashboardView
-          // },
+          {
+              path: '/bea-vue-vite/debts',
+              name: 'Debts',  
+              component: DashboardView
+          },
           {
               path: '/bea-vue-vite/products',
               name: 'Products',
@@ -101,7 +101,7 @@ const router = createRouter({
       component: () => import('../views/Error404View.vue')
     },
     {
-      path: '/login',
+      path: '/bea-vue-vite/login',
       name: 'Login',
       component: () => import('../components/LoginView.vue')
     },  

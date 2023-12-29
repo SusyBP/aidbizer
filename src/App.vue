@@ -26,7 +26,8 @@ import { faUsers, faMoneyBill, faChartLine,
       faCircleUser,
       faMagnifyingGlass,
       faEllipsisVertical,
-      faArrowRightFromBracket} from '@fortawesome/free-solid-svg-icons'
+      faArrowRightFromBracket,
+      faFileInvoiceDollar} from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUsers, faMoneyBill, faChartLine,
@@ -40,7 +41,8 @@ library.add(faUsers, faMoneyBill, faChartLine,
       faCircleUser,
       faMagnifyingGlass,
       faEllipsisVertical,
-	  faArrowRightFromBracket)
+	  faArrowRightFromBracket,
+	  faFileInvoiceDollar)
 
 // const componentKey = ref(0);
 
@@ -48,9 +50,9 @@ library.add(faUsers, faMoneyBill, faChartLine,
 // 	console.log("forcerender func")
 //   componentKey.value += 1;
 // };
-const render = ()=>{
+// const render = ()=>{
 	// window.location.reload();
-}
+// }
 
 </script>
 

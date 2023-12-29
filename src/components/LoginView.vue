@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         login(){
-            this.$emit("login")
+            // this.$emit("login")
             localStorage.setItem("loggedin", JSON.stringify(true))
             router.push({name: "Home"})
         },

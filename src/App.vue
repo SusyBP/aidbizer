@@ -29,7 +29,9 @@ import {
 	faEllipsisVertical,
 	faArrowRightFromBracket,
 	faFileInvoiceDollar,
-	faQuestionCircle
+	faQuestionCircle,
+	
+	
 } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
@@ -46,7 +48,9 @@ library.add(faUsers, faMoneyBill, faChartLine,
 	faEllipsisVertical,
 	faArrowRightFromBracket,
 	faFileInvoiceDollar,
-	faQuestionCircle)
+	faQuestionCircle,
+	
+	)
 
 </script>
 
@@ -88,18 +92,25 @@ body {
 }
 
 button {
-	cursor: pointer;
-	appearance: none;
-	border: none;
-	outline: none;
-	background: none;
+	// background-color: var(--theme-green);
+	// cursor: pointer;
+	// appearance: none;
+	// border: none;
+	// outline: none;
+	// background: none;
+}
+a:hover {
+  color: var(--gold-yellow_6);
 }
 
-.btn-theme {
+.btn-theme-green {
 	background-color: var(--theme-green) !important;
 }
-
-.app {
+.btn-theme-gold {
+	background-color: var(--gold-yellow_6) !important;
+	// color: white !important;
+}
+.app-main-content {
 	display: flex;
 	flex: 1 1;
 

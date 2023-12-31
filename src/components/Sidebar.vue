@@ -11,10 +11,10 @@
 				</div> -->
 				<div class="menu">
 					<div class="navbar-toggler-wrapper" >
-					<button class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+					<a class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'ellipsis-vertical']" /></span>
 						<span class="text"></span>
-					</button>
+					</a>
 				</div>
 				<div class="collapse navbar-collapse show" id="collapsibleNavbar">
 				<div>					
@@ -63,7 +63,7 @@
 					</router-link>	
 					<router-link :to="{ name: 'Expenses'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'dollar-sign']" /></span>
-						<span class="text">Expenses</span>x
+						<span class="text">Expenses</span>
 					</router-link>	
 					<router-link :to="{ name: 'Debts'}" class="button submenu-item">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'coins']" /></span>
@@ -96,8 +96,6 @@
 		/* import font awesome icon component */
 		import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-		/* import specific icons */
-		import { faUser, faEye, faMoneyBill, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons'
 		import logoURL from "../assets/images/iconBEA.png"
 
 		const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
@@ -154,7 +152,7 @@
 					
 					&:hover {
 						.material-icons {
-							color: var(--primary);
+							color: var(--gold-yellow_6);
 							transform: translateX(0.5rem);
 						}
 					}
@@ -235,19 +233,19 @@
 					}
 
 					&:hover {
-						background-color: var(--dark-alt);
+						background-color: var(--theme-green);
 
 						.material-icons, .text {
-							color: var(--primary);
+							color: var(--gold-yellow_6);
 						}
 					}
 
 					&.router-link-exact-active {
-						background-color: var(--dark-alt);
-						border-right: 5px solid var(--primary);
+						background-color: var(--theme-green);
+						border-right: 5px solid var(--gold-yellow_6);
 
 						.material-icons, .text {
-							color: var(--primary);
+							color: var(--gold-yellow_6);
 						}
 					}
 				}

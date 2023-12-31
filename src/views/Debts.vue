@@ -1,9 +1,9 @@
 <template>
     <Layout>
         <template #main>
-			<main id="expenses-page">
-				<h1>Expenses</h1>
-				<p>This is the expenses page</p>
+			<main id="debts-page">
+				<h1>debts</h1>
+				<p>This is the debts page</p>
 			</main>
         </template>
     </Layout>

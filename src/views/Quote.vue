@@ -1,6 +1,18 @@
 <template>
-	<main id="quote-page">
-		<h1>Quote</h1>
-		<p>This is the Quote page</p>
-	</main>
+    <Layout>
+        <template #main>
+			<main id="quote-page">
+				<h1>quote</h1>
+				<p>This is the quote page</p>
+			</main>
+        </template>
+    </Layout>
 </template>
+<script>
+import Layout from '../components/Layout.vue';
+export default{
+    components:{
+    Layout,
+}
+}
+</script>

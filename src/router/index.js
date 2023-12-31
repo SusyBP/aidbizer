@@ -24,7 +24,8 @@ const router = createRouter({
           {
               path: '/bea-vue-vite/debts',
               name: 'Debts',  
-              component: DashboardView
+              component: () => import('../views/Debts.vue'),
+              auth: true
           },
           {
               path: '/bea-vue-vite/products',

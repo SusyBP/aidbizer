@@ -1,24 +1,26 @@
 <template>
-    <Sidebar @logout="logout"></Sidebar>
-    <router-view></router-view>
+    <div class="app-main-content">
+        <Sidebar @logout="logout"></Sidebar>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script setup>
 
-import {ref, defineEmits} from 'vue'
+import { ref, defineEmits } from 'vue'
 import Sidebar from './Sidebar.vue';
 
 const isLoggedIn = ref(localStorage.getItem("loggedin") === "true")
 
-const logout = ()=>{
-	isLoggedIn.value = false;
-	localStorage.setItem('loggedin', isLoggedIn.value);
-	console.log("logginout ",'isLogguedIn: ', isLoggedIn.value)
+const logout = () => {
+    isLoggedIn.value = false;
+    localStorage.setItem('loggedin', isLoggedIn.value);
+    console.log("logginout ", 'isLogguedIn: ', isLoggedIn.value)
 }
 const emit = defineEmits(["render"])
 // const login = ()=>{
 //     emit("render")
-    // forceRender()
+// forceRender()
 // }
 
 // const componentKey = ref(0)

@@ -117,5 +117,9 @@ a:hover {
 	@media (max-width: 768px) {
 		flex-direction: column;
 	}
+
+	.form-group {
+		margin-bottom: 1rem;
+	}
 }
 </style>

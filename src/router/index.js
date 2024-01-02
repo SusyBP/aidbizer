@@ -4,7 +4,8 @@ import ProductsView from '../views/ProductsView.vue'
 import DashboardView from '../components/DashboardView.vue'
 // import MainComponent from '../components/MainComponent.vue'
 import Home from '../views/Home.vue'
-import LoginView from '../components/LoginView.vue'
+import SignIn from '../views/SignIn.vue'
+import SignUp from '../views/SignUp.vue'
 
 
 const router = createRouter({
@@ -102,10 +103,15 @@ const router = createRouter({
       component: () => import('../views/Error404View.vue')
     },
     {
-      path: '/bea-vue-vite/login',
-      name: 'Login',
-      component: () => import('../components/LoginView.vue')
+      path: '/bea-vue-vite/signin',
+      name: 'SignIn',
+      component: SignIn
     },  
+    {
+      path: '/bea-vue-vite/signup',
+      name: 'SignUp',
+      component: SignUp
+    }, 
   ]
 })
 

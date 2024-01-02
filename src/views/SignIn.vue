@@ -28,7 +28,7 @@
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
                     <span class="text-light">Don't have an account?</span>
                     <span class="space"></span>
-                    <a class="register-link">Sign up</a>
+                   <router-link :to="{name:'SignUp'}" class="register-link">Sign up</router-link>
                 </div>
 
                 <div class="policies form-group mt-3 d-flex flex-wrap justify-content-between">
@@ -47,7 +47,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from '../router';
 
 export default {
-    name: "LoginView",
+    name: "SignIn",
     components: {
         FontAwesomeIcon,
     },

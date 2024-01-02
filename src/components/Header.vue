@@ -41,7 +41,7 @@ export default {
         logout() {
             console.log("logging out")
             this.$emit("logout")
-            router.push({ name: "Login" })
+            router.push({ name: "SignIn" })
         },
         submit() {
             console.log("search form submitted")

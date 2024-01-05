@@ -1,36 +1,39 @@
 <template>
     <div class="login-page">
-        <div class="card p-5 m-4 bg-theme">
-            <h4>Login</h4>
+        <div class="card p-5 mt-5">
+            <h2 class="mb-5 text-center text-theme">Sign In</h2>
             <form class="form-group">
                 <div class="form-group">
-                    <label for="user-email">User/Email</label>
+                    <label for="user-email" class="text-uppercase fw-bold">Email</label>
                     <input id="user-email" class="form-control" type="text" v-model="username"
                         autocomplete="johndue@domail.com">
                 </div>
                 <div class="form-group">
-                    <label for="user-password">Password</label>
+                    <label for="user-password" class="text-uppercase fw-bold">Password</label>
                     <input id="user-password" class="form-control" type="password" v-model="password"
                         autocomplete="current-password">
                 </div>
 
-                <button class="btn text-light form-control mt-3" @click.prevent="login">Sign In</button>
-
-                <!-- <div class="external-login form-group mt-3">
-                    <div class="text-light">Login with another account</div>
-                    <div class="external-login-brands">
-                        <a href="#">Google -</a>
-                        <a href="#"> Facebook -</a>
-                        <a href="#"> X</a>
-                    </div>
-                </div> -->
+                <button class="btn btn-theme-green text-light form-control  text-uppercase" @click.prevent="login">Sign
+                    In</button>
 
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
-                    <span class="text-light">Don't have an account?</span>
+                    <span class="text-theme">Not account yet?</span>
                     <span class="space"></span>
-                   <router-link :to="{name:'SignUp'}" class="register-link">Sign up</router-link>
+                    <router-link :to="{ name: 'SignUp' }" class="register-link">Sign up</router-link>
                 </div>
 
+                <div class="external-login form-group mt-3">
+                    <!-- <div class="text-theme">Login with another account</div> -->
+                    <div class="external-login-brands">
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 488 512">
+                            <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 320 512">   
+                            <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/></svg></a>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 448 512">
+                            <path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg></a>
+                    </div>
+                </div>
                 <div class="policies form-group mt-3 d-flex flex-wrap justify-content-between">
                     <a href="#" class="terms-of-use">Terms of Use</a>
                     <!-- <span class="mb-1">.</span> -->
@@ -91,7 +94,7 @@ export default {
 
 .card label,
 h4 {
-    color: white;
+    color: var(--theme-green);
 }
 
 .login-page {
@@ -102,14 +105,49 @@ h4 {
 
 .login-page a {
     text-decoration: none;
-    color: var(--gold-yellow_6);
+    color: var(--theme-green);
 }
 
 .space {
     margin-right: .5rem;
 }
 
-button{
-    background-color:var(--gold-yellow_6) !important;
+button {
+    /* background-color:var(--gold-yellow_6) !important; */
+}
+
+.register-link {
+    text-decoration: underline !important;
+}
+
+input {
+    background-color: white !important;
+    border: 1px solid var(--theme-green);
+    border-radius: 10px;
+}
+
+.form-group label {
+    position: absolute;
+    margin-top: -.7rem;
+    margin-left: .8rem;
+    background: #fff;
+    padding: 0 .2rem;
+    font-size: .95rem;
+}
+
+.form-group input {
+    /* position: relative; */
+    margin-bottom: 1.5rem;
+
+}
+.external-login-brands{
+text-align: center;
+margin-top: 2rem;
+margin-bottom: 3rem;
+}
+
+svg{
+   color: var(--theme-green);
+   margin-right: 1rem;
 }
 </style>

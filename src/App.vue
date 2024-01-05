@@ -92,6 +92,7 @@ body {
 }
 
 button {
+	border-radius: 10px !important;
 	// background-color: var(--theme-green);
 	// cursor: pointer;
 	// appearance: none;

@@ -34,12 +34,12 @@
                     <div class="d-flex justify-content-between">
                         <div class="form-group">
                             <label for="user-city">State</label>
-                            <input id="user-city" class="form-control" v-model="city" autocomplete="city">
+                            <input id="user-city" class="form-control" v-model="state" autocomplete="state">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
                             <label for="user-city">Country</label>
-                            <input id="user-city" class="form-control" v-model="city" autocomplete="city">
+                            <input id="user-city" class="form-control" v-model="country" autocomplete="country">
                         </div>
                     </div>
                 </div>

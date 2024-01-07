@@ -1,8 +1,7 @@
 <template>
-    <div class="signup-page">
-        <div class="card p-5 m-4 bg-theme">
-            <h4>Sign Up</h4>
-
+    <div class="sigup-page">
+        <div class="card p-4 my-5 mx-4">
+            <h2 class="mb-4 text-theme">Sign Up</h2>
             <form class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -11,7 +10,7 @@
                     </div>
                     <div class="form-group">
                         <label for="user-street-address">Street Address</label>
-                        <input id="user-street-address" class="form-control" v-model="streetAddress1"
+                        <input id="user-street-address" class=" form-control" v-model="streetAddress1"
                             autocomplete="street-address">
                     </div>
                     <div class="d-flex">
@@ -22,8 +21,8 @@
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
-                            <label for="user-zipcode">Zip</label>
-                            <input id="user-zipcode" class="form-control" v-model="zip" autocomplete="zipcode">
+                            <label for="zip">Zip</label>
+                            <input id="zip" class="form-control" v-model="zip" autocomplete="zip">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
@@ -58,7 +57,7 @@
                         <input id="user-password" class="form-control" type="password" v-model="password"
                             autocomplete="current-password">
                     </div>
-                    <button class="btn text-light form-control mt-3" @click.prevent="signup">Sign Up</button>
+                    <button class="bg-theme text-light form-control" @click.prevent="signup">Sign Up</button>
                 </div>
             </form>
         </div>
@@ -118,9 +117,29 @@ export default {
     color: var(--theme-green);
 }
 
+
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-page a {
+    text-decoration: none;
+    /* color: var(--gold-yellow_6); */
+}
+
+.space {
+    margin-right: .5rem;
+}
+
+button {
+    background-color: var(--theme-green) !important;
+}
+
 .card label,
 h4 {
-    color: white;
+    color: var(--theme-green);
 }
 
 .login-page {
@@ -131,7 +150,7 @@ h4 {
 
 .login-page a {
     text-decoration: none;
-    color: var(--gold-yellow_6);
+    color: var(--theme-green);
 }
 
 .space {
@@ -139,6 +158,62 @@ h4 {
 }
 
 button {
-    background-color: var(--gold-yellow_6) !important;
+    /* background-color:var(--gold-yellow_6) !important; */
+}
+
+.register-link {
+    text-decoration: underline !important;
+}
+
+input {
+    background-color: white !important;
+    border: 1px solid var(--theme-green);
+    border-radius: 10px;
+}
+
+.form-group label {
+    position: absolute;
+    margin-top: -.7rem;
+    margin-left: .8rem;
+    background: #fff;
+    padding: 0 .2rem;
+    font-size: .95rem;
+}
+
+.form-group input {
+    /* position: relative; */
+    margin-bottom: 1.5rem;
+
+}
+
+.external-login-brands {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+svg {
+    color: var(--theme-green);
+    margin-right: 1rem;
+}
+
+.form-text-input {
+    padding: .6rem .5rem;
+}
+
+.form-text-input:focus {
+    border-color: rbg(12,95,95,0.18) !important;
+    box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important;
+}
+
+.form-text-input:focus-visible {
+    border-color: var(--theme-green-6) !important;;
+    /* box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important; */
+}
+
+@media (min-width:900px) {
+    .card {padding: 5rem !important;
+        margin-left: 8rem !important;
+        margin-right: 8rem !important}
 }
 </style>

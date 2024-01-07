@@ -88,7 +88,7 @@ library.add(faUsers, faMoneyBill, faChartLine,
 }
 
 body {
-	background: var(--light);
+	background-color: var(--theme-green) !important;
 }
 
 button {

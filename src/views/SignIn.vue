@@ -150,6 +150,11 @@ input {
 .external-login-brands {
     text-align: center;
     margin-top: 2rem;
+    margin-bottom: 3rem;}
+
+.external-login-brands {
+    text-align: center;
+    margin-top: 2rem;
     margin-bottom: 3rem;
 }
 
@@ -175,5 +180,19 @@ svg {
 
 .form-control:focus{
     background-color: var(--theme-green) !important; 
+}
+
+.form-text-input {
+    padding: .5rem;
+}
+
+.form-text-input:focus {
+    border-color: rbg(12,95,95,0.18) !important;
+    box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important;
+}
+
+.form-text-input:focus-visible {
+    border-color: var(--theme-green-6) !important;;
+    /* box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important; */
 }
 </style>

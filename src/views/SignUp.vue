@@ -6,18 +6,18 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="user-phone">Phone Number</label>
-                        <input id="user-phone" class="form-control" type="text" v-model="cellphone" autocomplete="">
+                        <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !isValid}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
                     </div>
                     <div class="form-group">
                         <label for="user-street-address">Street Address</label>
-                        <input id="user-street-address" class=" form-control" v-model="streetAddress1"
+                        <input id="user-street-address" class="form-control" v-model="streetAddress1"
                             autocomplete="street-address">
                     </div>
                     <div class="d-flex">
                         <div class="form-group">
                             <label for="user-street-address2">Apt.</label>
                             <input id="user-street-address2" class="form-control" v-model="streetAddress2"
-                                autocomplete="street-address2">
+                                autocomplete="street-address2" @change="onAptChange">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
@@ -57,6 +57,11 @@
                         <input id="user-password" class="form-control" type="password" v-model="password"
                             autocomplete="current-password">
                     </div>
+                    <div class="form-group">
+                        <label for="user-password-confirmation">Password Confirmation</label>
+                        <input id="user-password-confirmation" class="form-control" type="password" v-model="password_confirmation"
+                            autocomplete="user-password-confirmation">
+                    </div>
                     <button class="bg-theme text-light form-control" @click.prevent="signup">Sign Up</button>
                 </div>
             </form>
@@ -77,6 +82,7 @@ export default {
         return {
             fullname: "",
             password: "",
+            password_confirmation: "",
             email: "",
             cellphone: "",
             streetAddress1: "",
@@ -85,6 +91,7 @@ export default {
             zip: "",
             state: "",
             country: "",
+            isValid: true,
         }
     },
     methods: {
@@ -95,7 +102,27 @@ export default {
         validEmail(email) {
             const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             return email.match(regExp) != null;
+        },       
+
+        isValidPhone() {
+            const regExp = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+            return this.cellphone.match(regExp) != null || this.cellphone=="";
+        },
+
+        onPhoneChange(e){
+            this.isValid = this.isValidPhone()
+        },
+
+        onAptChange(){
+            console.log(this.isInterger(this.streetAddress2))
+        },
+        isInterger(){
+            const regExp = /^[0-9]{1,5}$/;
+            return this.streetAddress2.match(regExp) != null || this.streetAddress2=="";
         }
+    },
+    computed:{        
+        
     }
 }
 </script>
@@ -116,7 +143,6 @@ export default {
 .text-theme {
     color: var(--theme-green);
 }
-
 
 .signup-page {
     display: flex;
@@ -185,7 +211,6 @@ input {
     margin-bottom: 1.5rem;
 
 }
-
 .external-login-brands {
     text-align: center;
     margin-top: 2rem;
@@ -203,7 +228,7 @@ svg {
 
 .form-text-input:focus {
     border-color: rbg(12,95,95,0.18) !important;
-    box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important;
+    box-shadow: 0 0 0 0.25rem #6fbfbf59 !important;
 }
 
 .form-text-input:focus-visible {
@@ -216,4 +241,13 @@ svg {
         margin-left: 8rem !important;
         margin-right: 8rem !important}
 }
+.invalid-entry{
+		border-color: #dc3546c5 !important;
+		padding-right: calc(1.5em + .75rem) !important;
+		/* background-image: url(); */
+		background-repeat: no-repeat;
+		background-position: right calc(.375em + .1875rem) center;
+		background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+        box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.41) !important;
+	}
 </style>

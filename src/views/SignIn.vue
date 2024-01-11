@@ -179,7 +179,7 @@ svg {
 }
 
 .form-control:focus{
-    background-color: var(--theme-green) !important; 
+    /* background-color: var(--theme-green) !important;  */
 }
 
 .form-text-input {

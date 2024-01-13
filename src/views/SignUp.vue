@@ -6,7 +6,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="user-phone">Phone Number</label>
-                        <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !isValid}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
+                        <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !isValidPhone}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
                     </div>
                     <div class="form-group">
                         <label for="user-street-address">Street Address</label>
@@ -22,7 +22,7 @@
                         <span class="space"></span>
                         <div class="form-group">
                             <label for="zip">Zip</label>
-                            <input id="zip" class="form-control" v-model="zip" autocomplete="zip">
+                            <input id="zip" :class= "{'form-control': true, 'invalid-entry': !isValidZip}" v-model="zip" autocomplete="zip" @change="onZipChange()">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
@@ -91,7 +91,8 @@ export default {
             zip: "",
             state: "",
             country: "",
-            isValid: true,
+            isValidPhone: true,
+            isValidZip: true,
         }
     },
     methods: {
@@ -108,9 +109,15 @@ export default {
             const regExp = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
             return this.cellphone.match(regExp) != null || this.cellphone=="";
         },
-
+        isValidZipcode() {
+            const regExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+            return this.cellphone.match(regExp) != null || this.cellphone=="";
+        },
         onPhoneChange(e){
-            this.isValid = this.isValidPhone()
+            this.isValidPhone = this.isValidPhone()
+        },
+        onZipChange(e){
+            this.isValidZip = this.isValidZipcode()
         },
 
         onAptChange(){

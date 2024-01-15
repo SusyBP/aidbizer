@@ -100,9 +100,9 @@ button {
 	// outline: none;
 	// background: none;
 }
-a:hover {
-  color: var(--gold-yellow_6);
-}
+// a:hover {
+//   color: var(--gold-yellow_6);
+// }
 
 .btn-theme-green {
 	background-color: var(--theme-green) !important;

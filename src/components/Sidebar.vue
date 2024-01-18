@@ -1,5 +1,5 @@
 		<template>
-			<aside :class="`${is_expanded ? 'is-expanded' : 'not-expanded'}`">
+			<aside class='is-expanded'>
 				<div class="logo">
 					<img :src="logoURL" alt="Vue" /> 
 				</div>
@@ -11,11 +11,11 @@
 				</div> -->
 				<div class="menu">
 					<div class="navbar-toggler-wrapper" >
-					<a class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-						<span class="material-icons"><font-awesome-icon :icon="['fas', 'ellipsis-vertical']" /></span>
-						<span class="text"></span>
-					</a>
-				</div>
+						<a class="navbar-toggler material-icons" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+							<span class="material-icons"><font-awesome-icon :icon="['fas', 'ellipsis-vertical']" /></span>
+							<span class="text"></span>
+						</a>
+					</div>
 				<div class="collapse navbar-collapse show" id="collapsibleNavbar">
 				<div>					
 					<router-link :to="{ name: 'Home'}" class="button">
@@ -98,12 +98,12 @@
 
 		import logoURL from "../assets/images/iconBEA.png"
 
-		const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+		// const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 		
-		const ToggleMenu = () => {
-			is_expanded.value = !is_expanded.value
-			localStorage.setItem("is_expanded", is_expanded.value)
-		}
+		// const ToggleMenu = () => {
+		// 	is_expanded.value = !is_expanded.value
+		// 	localStorage.setItem("is_expanded", is_expanded.value)
+		// }
 
 		</script>
 

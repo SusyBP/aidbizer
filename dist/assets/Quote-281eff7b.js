@@ -1,0 +1,1 @@
+import{_ as t,L as a,r as s,o as n,f as c,w as r,a as o}from"./index-50932937.js";const p={components:{Layout:a}},u=o("main",{id:"quote-page"},[o("h1",null,"quote"),o("p",null,"This is the quote page")],-1);function _(i,l,m,d,f,h){const e=s("Layout");return n(),c(e,null,{main:r(()=>[u]),_:1})}const L=t(p,[["render",_]]);export{L as default};

@@ -14,9 +14,9 @@
                     <span class="help-link-icon"><font-awesome-icon :icon="['fas', 'question-circle']" /></span>
                 </a>
             </div>
-            <div class="logged-user-info">
+            <div class="logged-user-info"> 
                 <div class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
-                    <span class="logged-user-name">Company Name</span>
+                    <span class="logged-user-name">Username</span>
                     <span class="logged-user-avatar"><font-awesome-icon :icon="['fas', 'circle-user']" /></span>
                 </div>
                 <ul class="dropdown-menu">

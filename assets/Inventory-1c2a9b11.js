@@ -1,0 +1,1 @@
+import{_ as t,L as n,r as a,o as s,f as r,w as c,a as o}from"./index-2c0e2671.js";const p={components:{Layout:n}},_=o("main",{id:"invetory-page"},[o("h1",null,"Invetory"),o("p",null,"This is the Invetory page")],-1);function i(l,u,m,d,f,y){const e=a("Layout");return s(),r(e,null,{main:c(()=>[_]),_:1})}const v=t(p,[["render",i]]);export{v as default};

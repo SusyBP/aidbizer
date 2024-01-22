@@ -56,6 +56,8 @@ library.add(faUsers, faMoneyBill, faChartLine,
 
 <style lang="scss">
 :root {
+	--theme-primary-color: var(--theme-green);
+	--theme-secondary-color: var(--theme-green-7);
 	--theme-green: #0c5f5f;
 	--theme-green-1: #1c6f6f;
 	--theme-green-2: #2c7f7f;
@@ -108,7 +110,7 @@ button {
 	background-color: var(--theme-green) !important;
 }
 .btn-theme-gold {
-	background-color: var(--gold-yellow_6) !important;
+	// background-color: var(--gold-yellow_6) !important;
 	// color: white !important;
 }
 .app-main-content {

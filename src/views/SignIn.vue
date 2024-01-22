@@ -73,10 +73,7 @@ export default {
             router.push({ name: "Home" })
         },
 
-        validEmail(email) {
-            const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            return email.match(regExp) != null;
-        }
+       
     }
 }
 </script>
@@ -179,7 +176,7 @@ svg {
 }
 
 .form-control:focus{
-    /* background-color: var(--theme-green) !important;  */
+    background-color: white !important; 
 }
 
 .form-text-input {

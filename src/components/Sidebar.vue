@@ -152,7 +152,7 @@
 					
 					&:hover {
 						.material-icons {
-							color: var(--gold-yellow_6);
+							color: var(--theme-green_6);
 							transform: translateX(0.5rem);
 						}
 					}
@@ -236,18 +236,19 @@
 						background-color: var(--theme-green);
 
 						.material-icons, .text {
-							color: var(--gold-yellow_6);
+							// color: var(--theme-green-7);
 						}
 					}
 
 					&.router-link-exact-active {
 						background-color: var(--theme-green);
-						border-right: 5px solid var(--gold-yellow_6);
+						border-right: 5px solid var(--theme-green-7);
 
 						.material-icons, .text {
-							color: var(--gold-yellow_6);
+							color: var(--theme-secondary-color);
 						}
 					}
+					
 				}
 			}
 

@@ -123,9 +123,9 @@ export default {
     }
 
 }
-.dropdown-item:hover{
-        color: var(--gold-yellow_6);
-        background-color: var(--theme-green) !important;
-    }
 
+    .dropdown-item:active{
+        color: var(--dark);
+        background-color: white !important; 
+    }
 </style>

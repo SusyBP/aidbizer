@@ -1,12 +1,13 @@
 <template>
     <div class="sigup-page">
         <div class="card p-4 my-5 mx-4">
+            <Message v-show="errors.length>0" :message="Message" :category="Success"></Message>
             <h2 class="mb-4 text-theme">Sign Up</h2>
             <form class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="user-phone">Phone Number</label>
-                        <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !validPhone}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
+                        <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !errors.validPhone}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
                     </div>
                     <div class="form-group">
                         <label for="user-street-address">Street Address</label>
@@ -22,23 +23,23 @@
                         <span class="space"></span>
                         <div class="form-group">
                             <label for="zip">Zip</label>
-                            <input id="zip" :class= "{'form-control': true, 'invalid-entry': !validZip}" v-model="zip" autocomplete="zip" @change="onZipChange()">
+                            <input id="zip" :class= "{'form-control': true, 'invalid-entry': !errors.validZip}" v-model="zip" autocomplete="zip" @change="onZipChange()">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
                             <label for="user-city">City</label>
-                            <input id="user-city" class="form-control" v-model="city" autocomplete="city">
+                            <input id="user-city" class="form-control" v-model="city" autocomplete="state">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="form-group">
-                            <label for="user-city">State</label>
-                            <input id="user-city" class="form-control" v-model="state" autocomplete="state">
+                            <label for="user-state">State</label>
+                            <input id="user-state" class="form-control" v-model="state" autocomplete="state">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
-                            <label for="user-city">Country</label>
-                            <input id="user-city" class="form-control" v-model="country" autocomplete="country">
+                            <label for="user-country">Country</label>
+                            <input id="user-country" class="form-control" v-model="country" autocomplete="country">
                         </div>
                     </div>
                 </div>
@@ -49,8 +50,8 @@
                     </div>
                     <div class="form-group">
                         <label for="user-email">Email</label>
-                        <input id="user-email" class="form-control" type="text" v-model="email"
-                            autocomplete="johndue@domail.com">
+                        <input id="user-email" v-model="email" :class= "{'form-control': true, 'invalid-entry': !errors.validEmail}" type="text" autocomplete="" @change="onEmailChange()"
+                            >
                     </div>
                     <div class="form-group">
                         <label for="user-password">Password</label>
@@ -72,11 +73,13 @@
 <script>
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import router from '../router';
+import Message from '../components/Message.vue'
+import router    from '../router';
 
 export default {
     components: {
         FontAwesomeIcon,
+        Message,
     },
     data() {
         return {
@@ -91,18 +94,23 @@ export default {
             zip: "",
             state: "",
             country: "",
-            validPhone: true,
-            validZip: true,
+           
+            errors:{
+                validPhone: true,
+                validZip: true,
+                validEmail: true,
+            }
         }
     },
     methods: {
         signup() {
+            
             router.push({ name: "SignIn" })
         },
 
-        validEmail(email) {
+        isValidEmail() {
             const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            return email.match(regExp) != null;
+            return this.email.match(regExp) != null;
         },       
 
         isValidPhone() {
@@ -113,19 +121,24 @@ export default {
             const regExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
             return this.zip.match(regExp) != null || this.zip=="";
         },
+        
+        isInterger(){
+            const regExp = /^[0-9]{1,5}$/;
+            return this.streetAddress2.match(regExp) != null || this.streetAddress2=="";
+        },
+        
+        onEmailChange(){
+            this.errors.validEmail = this.isValidEmail()
+        },
         onPhoneChange(e){
-            this.validPhone = this.isValidPhone()
+            this.errors.validPhone = this.isValidPhone()
         },
         onZipChange(e){
-            this.validZip = this.isValidZipcode()
+            this.errors.validZip = this.isValidZipcode()
         },
 
         onAptChange(){
             console.log(this.isInterger(this.streetAddress2))
-        },
-        isInterger(){
-            const regExp = /^[0-9]{1,5}$/;
-            return this.streetAddress2.match(regExp) != null || this.streetAddress2=="";
         }
     },
     computed:{        
@@ -159,7 +172,7 @@ export default {
 
 .signup-page a {
     text-decoration: none;
-    /* color: var(--gold-yellow_6); */
+    color: var(--theme-primary-color);
 }
 
 .space {

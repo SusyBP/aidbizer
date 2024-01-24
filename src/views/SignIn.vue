@@ -5,8 +5,8 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="user-email" class="text-uppercase">Email</label>
-                    <input id="user-email" class="form-text-input form-control" type="text" v-model="username"
-                        autocomplete="johndue@domail.com">  
+                    <input id="user-email" :class= "{'form-text-input form-control': true, 'invalid-entry': !validEmail}" type="text" v-model="email"
+                        autocomplete="johndue@domail.com" @change="onEmailChanged">  
                 </div>
                 <div class="form-group">
                     <label for="user-password" class="text-uppercase">Password</label>
@@ -14,7 +14,7 @@
                         autocomplete="current-password">
                 </div>
 
-                <button class="bg-theme text-light form-control  text-uppercase" @click.prevent="login">Sign
+                <button class="btn bg-theme text-light  text-uppercase" @click.prevent="login">Sign
                     In</button>
 
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
@@ -62,8 +62,9 @@ export default {
     },
     data() {
         return {
-            username: "",
+            email: "",
             password: "",
+            validEmail: true,
         }
     },
     methods: {
@@ -72,7 +73,13 @@ export default {
             localStorage.setItem("loggedin", JSON.stringify(true))
             router.push({ name: "Home" })
         },
-
+        isValidEmail(email) {
+            const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return email.match(regExp) != null;
+        },
+        onEmailChanged(){
+            this.validEmail = this.isValidEmail(this.email)
+        },
        
     }
 }
@@ -175,8 +182,8 @@ svg {
     box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important;
 }
 
-.form-control:focus{
-    background-color: white !important; 
+.form-text-input:focus{
+    /* background-color: white !important;  */
 }
 
 .form-text-input {

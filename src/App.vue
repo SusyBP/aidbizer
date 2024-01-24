@@ -125,4 +125,15 @@ button {
 		margin-bottom: 1rem;
 	}
 }
+
+
+.invalid-entry{
+		border-color: #dc3546c5 !important;
+		padding-right: calc(1.5em + .75rem) !important;
+		/* background-image: url(); */
+		background-repeat: no-repeat;
+		background-position: right calc(.375em + .1875rem) center;
+		background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+        box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.41) !important;
+	}
 </style>

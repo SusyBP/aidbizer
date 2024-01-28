@@ -1,0 +1,1 @@
+import{_ as o,L as s,r as a,o as n,f as c,w as r,a as e}from"./index-f4590c5f.js";const p={components:{Layout:s}},_=e("main",{id:"debts-page"},[e("h1",null,"debts"),e("p",null,"This is the debts page")],-1);function i(d,l,u,m,f,h){const t=a("Layout");return n(),c(t,null,{main:r(()=>[_]),_:1})}const x=o(p,[["render",i]]);export{x as default};

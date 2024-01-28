@@ -14,7 +14,7 @@
                         autocomplete="current-password">
                 </div>
 
-                <button class="btn bg-theme text-light  text-uppercase" @click.prevent="login">Sign
+                <button class="form-control bg-theme text-light  text-uppercase" @click.prevent="login">Sign
                     In</button>
 
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
@@ -198,5 +198,9 @@ svg {
 .form-text-input:focus-visible {
     border-color: var(--theme-green-6) !important;;
     /* box-shadow: 0 0 0 0.25rem var(--theme-green-6) !important; */
+}
+
+.form-control:focus {
+    border-color: var(--theme-green-6) !important;
 }
 </style>

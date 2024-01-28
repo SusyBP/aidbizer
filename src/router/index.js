@@ -17,7 +17,7 @@ const router = createRouter({
       component: () => import('../components/MainComponent.vue'),
       children: [
           {
-              path: '/home',
+              path: '/',
               name: 'Home',
               component: Home,
               auth: true
@@ -29,7 +29,7 @@ const router = createRouter({
               auth: true
           },
           {
-              path: '/aidbizer/products',
+              path: '/products',
               name: 'Products',
               component: () => import('../views/ProductsView.vue'),
               auth: true
@@ -41,55 +41,55 @@ const router = createRouter({
             auth: true
           },
           {
-            path: '/aidbizer/orders',
+            path: '/orders',
             name: 'Orders',
             component: () => import('../views/Orders.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/expenses',
+            path: '/expenses',
             name: 'Expenses',
             component: () => import('../views/Expenses.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/stock',
+            path: '/stock',
             name: 'Stock',//stock de productos
             component: () => import('../views/Stock.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/inventory',
+            path: '/inventory',
             name: 'Inventory',//stock de materias primas
             component: () => import('../views/Inventory.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/production-processes',
+            path: '/production-processes',
             name: 'ProductionProcesses',//stock de materias primas
             component: () => import('../views/ProductionProcesses.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/invoices',
+            path: '/invoices',
             name: 'Invoices',
             component: () => import('../views/Invoices.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/quote',
+            path: '/quote',
             name: 'Quote',
             component: () => import('../views/Quote.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/balance',
+            path: '/balance',
             name: 'Balance',
             component: () => import('../views/Balance.vue'),
             auth: true
           },
           {
-            path: '/aidbizer/contacts',
+            path: '/contacts',
             name: 'Contacts',
             component: () => import('../views/Contacts.vue'),
             auth: true
@@ -97,12 +97,12 @@ const router = createRouter({
       ]
   },
     {
-      path: '/aidbizer/signin',
+      path: '/signin',
       name: 'SignIn',
       component: SignIn
     },  
     {
-      path: '/aidbizer/signup',
+      path: '/signup',
       name: 'SignUp',
       component: SignUp
     },

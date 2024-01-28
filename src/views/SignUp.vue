@@ -4,7 +4,7 @@
             <Message v-show="errors.length>0" :message="Message" :category="Success"></Message>
             <h2 class="mb-4 text-theme">Sign Up</h2>
             <form class="row">
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6"> -->
                     <div class="form-group">
                         <label for="user-phone">Phone Number</label>
                         <input id="user-phone" :class= "{'form-control': true, 'invalid-entry': !errors.validPhone}" type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
@@ -42,8 +42,8 @@
                             <input id="user-country" class="form-control" v-model="country" autocomplete="country">
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6">
+                <!-- </div> -->
+                <!-- <div class="col-sm-6"> -->
                     <div class="form-group">
                         <label for="user-password">Full Name</label>
                         <input id="user-fullname" class="form-control" v-model="fullname" autocomplete="fullname">
@@ -64,7 +64,7 @@
                             autocomplete="user-password-confirmation">
                     </div>
                     <button class="bg-theme text-light form-control" @click.prevent="signup">Sign Up</button>
-                </div>
+                <!-- </div> -->
             </form>
         </div>
     </div>
@@ -261,13 +261,5 @@ svg {
         margin-left: 8rem !important;
         margin-right: 8rem !important}
 }
-.invalid-entry{
-		border-color: #dc3546c5 !important;
-		padding-right: calc(1.5em + .75rem) !important;
-		/* background-image: url(); */
-		background-repeat: no-repeat;
-		background-position: right calc(.375em + .1875rem) center;
-		background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-        box-shadow: 0 0 0 0.25rem rgba(253, 13, 13, 0.41) !important;
-	}
+
 </style>

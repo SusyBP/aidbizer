@@ -1,0 +1,1 @@
+import{_ as a,L as s,r as n,o as e,f as c,w as r,a as t}from"./index-f4590c5f.js";const p={components:{Layout:s}},_=t("main",{id:"contacts-page"},[t("h1",null,"Contacts"),t("p",null,"This is the Contacts page")],-1);function i(l,u,m,d,f,h){const o=n("Layout");return e(),c(o,null,{main:r(()=>[_]),_:1})}const x=a(p,[["render",i]]);export{x as default};

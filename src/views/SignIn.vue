@@ -201,6 +201,6 @@ svg {
 }
 
 .form-control:focus {
-    border-color: var(--theme-green-6) !important;
+    background-color: var(--theme-green) !important;
 }
 </style>

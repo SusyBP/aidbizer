@@ -136,18 +136,9 @@ input {
     border-radius: 10px;
 }
 
-.form-group label {
-    position: absolute;
-    margin-top: -.7rem;
-    margin-left: .8rem;
-    background: #fff;
-    padding: 0 .2rem;
-    font-size: .95rem;
-}
-
 .form-group input {
     /* position: relative; */
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
 
 }
 

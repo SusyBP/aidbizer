@@ -77,6 +77,7 @@ library.add(faUsers, faMoneyBill, faChartLine,
 	--primary: #00ffe5; // #25cbbb;
 	--primary-alt: #00ffe5; //#22c55e;
 	--grey: #64748b;
+	--light-grey: #fcfcfc;
 	--dark: rgb(36, 63, 61); //#1e293b;
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
@@ -90,7 +91,7 @@ library.add(faUsers, faMoneyBill, faChartLine,
 }
 
 body {
-	background-color: var(--theme-green) !important;
+	background-color: var(--light-grey) !important;
 }
 
 button {

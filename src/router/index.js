@@ -102,7 +102,7 @@ const router = createRouter({
       component: SignIn
     },  
     {
-      path: '/susybp.github.io/aidbizer/signup',
+      path: '/aidbizer/signup',
       name: 'SignUp',
       component: SignUp
     },

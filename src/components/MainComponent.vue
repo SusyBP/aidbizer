@@ -15,7 +15,7 @@ const isLoggedIn = ref(localStorage.getItem("loggedin") === "true")
 const logout = () => {
     isLoggedIn.value = false;
     localStorage.setItem('loggedin', isLoggedIn.value);
-    console.log("logginout ", 'isLogguedIn: ', isLoggedIn.value)
+    console.log("logginout ", 'isLogguedIn: ', isLoggedIn.value);
 }
 const emit = defineEmits(["render"])
 // const login = ()=>{

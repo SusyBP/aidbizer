@@ -16,7 +16,7 @@
 							<span class="text"></span>
 						</a>
 					</div>
-				<div class="collapse navbar-collapse show" id="collapsibleNavbar">
+				<div class="collapse navbar-collapse" id="collapsibleNavbar">
 				<div>					
 					<router-link :to="{ name: 'Home'}" class="button">
 						<span class="material-icons"><font-awesome-icon :icon="['fas', 'table-cells']" /></span>
@@ -129,6 +129,9 @@
 
 			@media (min-width: 768px) {
 
+				#collapsibleNavbar{
+					display: block;
+				}
 			.navbar-toggler-wrapper{
 				margin-right: 9rem;
 				margin-left: 1.3rem;

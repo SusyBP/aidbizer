@@ -2,7 +2,7 @@
     <div class="signup-page">
         <div class="card p-4 my-5 mx-4">
             <Message v-show="errors.length < 0" :message="Message" :category="Success"></Message>
-            <h2 class="mb-4 text-theme">Sign Up</h2>
+            <h1 class="mb-4 text-theme">Sign Up</h1>
             <form class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -71,7 +71,7 @@
                         <input id="user-password-confirmation" class="form-control" type="password"
                             v-model="password_confirmation" autocomplete="user-password-confirmation">
                     </div>
-                    <button class="bg-theme text-light form-control" @click.prevent="signup">Sign Up</button>
+                    <button class="bg-theme text-light form-control mt-3" @click.prevent="signup">Sign Up</button>
                 </div>
             </form>
         </div>
@@ -213,7 +213,7 @@ h4 {
 }
 
 button {
-    /* background-color:var(--gold-yellow_6) !important; */
+    background-color:var(--theme-green) !important;
 }
 
 .register-link {

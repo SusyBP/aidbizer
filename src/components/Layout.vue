@@ -13,6 +13,9 @@
 
 <script setup>
 import Header from './Header.vue'
+import { defineProps, onMounted } from 'vue';
+
+
 </script>
 <style scoped>
 .container-fluid {

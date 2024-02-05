@@ -7,16 +7,16 @@
                             :icon="['fas', 'magnifying-glass']" /></span></button>
             </form>
         </div>
-        <div class="col-md-6 user-support">  
+        <div class="col-md-6 user-support">
             <div class="help-link">
                 <a href="#">
                     <span class="help-link-text">Help</span>
                     <span class="help-link-icon"><font-awesome-icon :icon="['fas', 'question-circle']" /></span>
                 </a>
             </div>
-            <div class="logged-user-info"> 
+            <div class="logged-user-info">
                 <div class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
-                    <span class="logged-user-name">Username</span>
+                    <span class="logged-user-name">{{ username }}</span>
                     <span class="logged-user-avatar"><font-awesome-icon :icon="['fas', 'circle-user']" /></span>
                 </div>
                 <ul class="dropdown-menu">
@@ -33,6 +33,11 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "../router"
 export default {
     name: "Header",
+    data() {
+        return {
+            username: ""
+        }
+    },
     components: {
         FontAwesomeIcon
     },
@@ -45,8 +50,13 @@ export default {
         },
         submit() {
             console.log("search form submitted")
+        },
+       
+    },
+    mounted() {
+            this.username = localStorage.getItem('username').split('\"')[1]
+            console.log(this.username)
         }
-    }
 }
 </script>
 <style scoped>
@@ -56,13 +66,16 @@ export default {
     padding-top: 0;
     padding-bottom: 0;
 }
-.logged-user-info btn:active{
+
+.logged-user-info btn:active {
     border: none;
 }
+
 .help-link {
     padding-top: .5rem;
 }
-.help-link a:hover{
+
+.help-link a:hover {
     color: var(--theme-green);
 }
 
@@ -90,12 +103,14 @@ export default {
 /* .logged-user-info:active {
     border: none;
 } */
-.logged-user-info:hover{
+.logged-user-info:hover {
     color: var(--theme-green);
 }
-.logged-user-info{
+
+.logged-user-info {
     color: var(--dark);
 }
+
 .logged-user-avatar {
     font-size: 1.5rem;
     margin-right: .5rem;
@@ -124,8 +139,8 @@ export default {
 
 }
 
-    .dropdown-item:active{
-        color: var(--dark);
-        background-color: white !important; 
-    }
+.dropdown-item:active {
+    color: var(--dark);
+    background-color: white !important;
+}
 </style>

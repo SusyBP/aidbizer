@@ -1,1 +1,0 @@
-import{_ as s,L as t,r as a,o as n,f as r,w as c,a as e}from"./index-675331d6.js";const p={components:{Layout:t}},_=e("main",{id:"orders-page"},[e("h1",null,"Orders"),e("p",null,"This is the Orders page")],-1);function d(i,l,u,m,f,h){const o=a("Layout");return n(),r(o,null,{main:c(()=>[_]),_:1})}const L=s(p,[["render",d]]);export{L as default};

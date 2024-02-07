@@ -105,6 +105,7 @@ grid-item-2{
 
 .product-card {
   border-left: 10px solid #1f615a;
+  background-color: white;
 }
 .shadow-box {
   /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */

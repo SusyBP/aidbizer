@@ -71,7 +71,7 @@
                         <input id="user-password-confirmation" class="form-control" type="password"
                             v-model="password_confirmation" autocomplete="user-password-confirmation">
                     </div>
-                    <button class="bg-theme text-light form-control mt-3" @click.prevent="signup">Sign Up</button>
+                    <button class="btn btn-lg bg-theme text-light form-control mt-2" @click.prevent="signup">Sign Up</button>
                 </div>
             </form>
         </div>

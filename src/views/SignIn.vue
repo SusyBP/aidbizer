@@ -6,15 +6,15 @@
                 <div class="form-group">
                     <label for="user-email" class="text-uppercase">Email</label>
                     <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !validEmail }"
-                        type="text" v-model="email"  @change="onEmailChanged">
+                        type="text" v-model="email"  @change="onEmailChanged" autocomplete="username">
                 </div>
                 <div class="form-group">
                     <label for="user-password" class="text-uppercase">Password</label>
                     <input id="user-password" class="form-text-input form-control" type="password" v-model="password"
-                        autocomplete="current-password">
+                        autocomplete="password">
                 </div>
 
-                <button class="bg-theme text-light text-uppercase mt-3 form-control"  @click.prevent="login">Sign
+                <button class="btn btn-lg bg-theme text-light mt-2 form-control"  @click.prevent="login">Sign
                     In</button>
 
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">

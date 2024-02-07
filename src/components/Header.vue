@@ -51,12 +51,17 @@ export default {
         submit() {
             console.log("search form submitted")
         },
-       
+
     },
     mounted() {
-            this.username = localStorage.getItem('username').split('\"')[1]
-            console.log(this.username)
+        var storedUser = localStorage.getItem('username')
+        if (storedUser != null || storedUser != "" ) {
+            const chunks = storedUser.split('\"')
+            if (chunks.length > 1) {
+                this.username = chunks[1]
+            };
         }
+    }
 }
 </script>
 <style scoped>

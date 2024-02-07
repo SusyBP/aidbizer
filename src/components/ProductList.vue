@@ -1,63 +1,34 @@
 <template>
-  <div
-    class="container d-sm-flex justify-content-center align-items-center mt-5"
-  >
-    <div class="col-sm-6">
-      <ProductItem
-        v-for="(product, index) in products"
-        :key="index"
-        :Nombre="product.Nombre"
-        :Denominacion="product.Denominacion"
-        :Precio="product.Precio"
-        :Foto="product.Foto"
-      >
-      </ProductItem>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-start align-items-center flex-row">
+      <div class="">
+        <ProductItem v-for="(product, index) in products" :key="index" :Nombre="product.Nombre"
+          :Denominacion="product.Denominacion" :Precio="product.Precio" :Foto="product.Foto">
+        </ProductItem>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import ProductItem from "./ProductItem.vue";
-   
+const API_URI = "http://beassistant-001-site1.etempurl.com/api"
 
 export default {
   name: "ProductList",
+  props: {
+    idEmpresa: String
+  },
   data() {
     return {
-      products : []
-      // products: [
-      //   {
-      //     Foto: "/images/default-product-image.png",
-      //     Nombre: "Producto1",
-      //     Denominacion: "Aretes con argolla plateada ...",
-      //     Precio: "10",
-      //   },
-      //   {
-      //     Foto: "favicon.ico",
-      //     Nombre: "Producto2",
-      //     Denominacion: "Lorem ipsum ...",
-      //     Precio: "10",
-      //   },
-      //   {
-      //     Foto: "favicon.ico",
-      //     Nombre: "Producto3",
-      //     Denominacion: "Lorem ipsum ...",
-      //     Precio: "10",
-      //   },
-      //   {
-      //     Foto: "favicon.ico",
-      //     Nombre: "Producto4",
-      //     Denominacion: "Lorem ipsum ...",
-      //     Precio: "10",
-      //   },
-      // ],
+      products: [],
     };
   },
-  created(){
+  created() {
     this.getProducts();
   },
-  methods:{
-    async getProducts(){
-      const res = await fetch('http://beassistant-001-site1.etempurl.com/api/Productos?idEmpresa=12');
+  methods: {
+    async getProducts() {
+      const res = await fetch(API_URI + '/Productos?idEmpresa=' + this.idEmpresa);
       const data = await res.json();
       this.products = data;
       console.log(data)

@@ -4,7 +4,7 @@
             <Sidebar></Sidebar>
         </template> -->
         <template #main>
-            <ProductList></ProductList>
+            <ProductList :idEmpresa="12"></ProductList>
         </template>
     </Layout>
 </template>

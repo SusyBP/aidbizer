@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <div class="d-flex justify-content-start align-items-center flex-row">
       <div class="">
-        <ProductItem v-for="(product, index) in products" :key="index" :Nombre="product.Nombre"
+        <ProductItem v-for="(product, index) in products" :key="index" :id="index.toString()" :Nombre="product.Nombre"
           :Denominacion="product.Denominacion" :Precio="product.Precio" :Foto="product.Foto">
         </ProductItem>
       </div>
@@ -16,7 +16,7 @@ const API_URI = "http://beassistant-001-site1.etempurl.com/api"
 export default {
   name: "ProductList",
   props: {
-    idEmpresa: String
+    idEmpresa: Number
   },
   data() {
     return {
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     async getProducts() {
-      const res = await fetch(API_URI + '/Productos?idEmpresa=' + this.idEmpresa);
+      const res = await fetch(API_URI + '/Productos?idEmpresa=' + this.idEmpresa.toString());
       const data = await res.json();
       this.products = data;
       console.log(data)

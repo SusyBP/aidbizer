@@ -1,9 +1,9 @@
 <template>
     <div class="signup-page">
         <div class="card p-4 my-5 mx-4">
-            <Message v-show="errors.length < 0" :message="Message" :category="Success"></Message>
+            <Message v-show="errors.responseError" :message="Message" :category="danger"></Message>
             <h1 class="mb-4 text-theme">Sign Up</h1>
-            <form class="row">
+            <form class="row" id="sign_up_form">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="user-phone">Phone Number</label>
@@ -29,8 +29,8 @@
                         <span class="space"></span>
                         <div class="form-group">
                             <label for="zip">Zip</label>
-                            <input id="zip" :class="{ 'form-control': true, 'invalid-entry': !errors.validZip }" v-model="zip"
-                                autocomplete="zip" @change="onZipChange()">
+                            <input id="zip" :class="{ 'form-control': true, 'invalid-entry': !errors.validZip }"
+                                v-model="zip" autocomplete="zip" @change="onZipChange()">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -58,8 +58,8 @@
                     <div class="form-group">
                         <label for="user-email">Email</label>
                         <input id="user-email" v-model="email"
-                            :class="{ 'form-control': true, 'invalid-entry': !errors.validEmail }" type="text" autocomplete=""
-                            @change="onEmailChange()">
+                            :class="{ 'form-control': true, 'invalid-entry': !errors.validEmail }" type="text"
+                            autocomplete="" @change="onEmailChange()">
                     </div>
                     <div class="form-group">
                         <label for="user-password">Password</label>
@@ -71,7 +71,8 @@
                         <input id="user-password-confirmation" class="form-control" type="password"
                             v-model="password_confirmation" autocomplete="user-password-confirmation">
                     </div>
-                    <button class="btn btn-lg bg-theme text-light form-control mt-2" @click.prevent="signup">Sign Up</button>
+                    <button class="btn btn-lg bg-theme text-light form-control mt-2" @click.prevent="signup">Sign
+                        Up</button>
                 </div>
             </form>
         </div>
@@ -83,6 +84,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Message from '../components/Message.vue'
 import router from '../router';
+const API_URI = "https://localhost:44363/PostUserWithLocalizacion/";
+// const API_URI = "http://beassistant-001-site1.etempurl.com/PostUserWithLocalizacion";
+import { sha256 } from 'js-sha256';
 
 export default {
     components: {
@@ -102,20 +106,17 @@ export default {
             zip: "",
             county: "",
             state: "",
-            country: "",
+            country: 0,
 
             errors: {
                 validPhone: true,
                 validZip: true,
                 validEmail: true,
+                responseError: false
             }
         }
     },
     methods: {
-        signup() {
-
-            router.push({ name: "SignIn" })
-        },
 
         isValidEmail() {
             const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -148,6 +149,42 @@ export default {
 
         onAptChange() {
             console.log(this.isInterger(this.streetAddress2))
+        },
+
+        signup() {
+
+            fetch(API_URI, {
+                method: 'POST',
+                mode: 'cors',
+                headers: new Headers({
+                    "Content-Type": "application/json"
+                }),
+                body: JSON.stringify({
+                    "User": {
+                        Nombre: this.fullname, 
+                        Numero: this.cellphone,
+                        Correo: this.email,
+                        Clave: sha256(this.password),
+                        TipoUsuario: 3                       
+                    },
+                    "Localizacion" :{
+                        Pais: this.country, 
+                        Ciudad: this.city,
+                        EstadoProvincia: this.state,
+                        Direccion: this.streetAddress1 + ", " + this.streetAddress2
+                    }
+                })
+            })
+                .then((response) => response.text())
+                .then((responseText) => {
+                    console.log("signup ok", responseText);
+                    // localStorage.setItem("Enterprise", responseText.IdEmpresa)
+                    router.push({name: 'SignIn'})    
+                })
+                .catch((error) => {
+                    this.errors.responseError = true
+                    console.log("signup error", responseText);
+                });
         }
     },
     computed: {
@@ -213,7 +250,7 @@ h4 {
 }
 
 button {
-    background-color:var(--theme-green) !important;
+    background-color: var(--theme-green) !important;
 }
 
 .register-link {
@@ -226,7 +263,7 @@ input {
     border-radius: 10px;
 }
 
-.form-group{
+.form-group {
     /* margin-bottom: .1rem !important; */
 }
 
@@ -273,7 +310,7 @@ svg {
 #user-city {
     /* max-width: 6rem !important;
     min-width: 3rem !important;*/
-} 
+}
 
 #user-country,
 #user-state {

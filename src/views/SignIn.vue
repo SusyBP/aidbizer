@@ -62,6 +62,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from '../router';
 import axios from 'axios';
 import { sha256 } from 'js-sha256';
+const API_URI = "https://localhost:44363/SignIn";
+// const API_URI = "http://beassistant-001-site1.etempurl.com/SignIn";
 
 export default {
     name: "SignIn",
@@ -77,7 +79,7 @@ export default {
     },
     methods: {
         async login() {
-            fetch("http://beassistant-001-site1.etempurl.com/SignIn", {
+            fetch(API_URI, {
                 method: 'POST',
                 mode: 'cors',
                 headers: new Headers({

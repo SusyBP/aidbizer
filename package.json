@@ -22,6 +22,7 @@
     "bootstrap-vue": "^2.23.1",
     "js-sha256": "^0.11.0",
     "vue": "^3.3.4",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {

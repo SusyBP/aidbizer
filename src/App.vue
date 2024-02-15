@@ -5,6 +5,8 @@
 </template>
 
 <script setup>
+
+const API_URI = "http://beassistant-001-site1.etempurl.com/";
 import { ref } from "vue";
 import MainComponent from "./components/MainComponent.vue";
 

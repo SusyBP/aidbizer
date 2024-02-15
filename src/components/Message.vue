@@ -11,6 +11,6 @@ const props = defineProps({
 </script>
 <template>
     <div class="alert alert-success">
-        <strong>{{ category }}</strong> {{ message }}
+        <strong>{{ props.category }}</strong> {{ props.message }}
     </div>
 </template>

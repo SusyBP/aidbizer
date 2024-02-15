@@ -11,7 +11,8 @@
 </template>
 <script>
 import ProductItem from "./ProductItem.vue";
-const API_URI = "http://beassistant-001-site1.etempurl.com/api"
+const API_URI = "https://localhost:44363/api/Productos?idEmpresa=";
+// const API_URI = "http://beassistant-001-site1.etempurl.com/api/Productos?idEmpresa=";
 
 export default {
   name: "ProductList",
@@ -28,7 +29,7 @@ export default {
   },
   methods: {
     async getProducts() {
-      const res = await fetch(API_URI + '/Productos?idEmpresa=' + this.idEmpresa.toString());
+      const res = await fetch(API_URI + this.idEmpresa.toString());
       const data = await res.json();
       this.products = data;
       console.log(data)

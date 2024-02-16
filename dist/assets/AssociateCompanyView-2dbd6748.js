@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as a,a as e}from"./index-627a7cae.js";const s={},c={id:"page"},n=e("h1",null,"Create Company",-1),_=e("p",null,"Create a Compay",-1),r=[n,_];function i(d,p){return t(),a("main",c,r)}const m=o(s,[["render",i]]);export{m as default};

@@ -3,9 +3,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ProductsView from '../views/ProductsView.vue'
 import DashboardView from '../components/DashboardView.vue'
 // import MainComponent from '../components/MainComponent.vue'
-import Home from '../views/Home.vue'
-import SignIn from '../views/SignIn.vue'
-import SignUp from '../views/SignUp.vue'
+import Home from '../views/Home.vue';
+import SignIn from '../views/SignIn.vue';
+import SignUp from '../views/SignUp.vue';
+import CreateCompanyView from '../views/CreateCompanyView.vue';
 
 
 const router = createRouter({
@@ -20,12 +21,6 @@ const router = createRouter({
           path: '/aidbizer',
           name: 'Home',
           component: Home,
-          auth: true
-        },
-        {
-          path: '/aidbizer/associate',
-          name: 'Associate',
-          component: () => import('../views/AssociateCompanyView.vue'),
           auth: true
         },
         {
@@ -112,7 +107,17 @@ const router = createRouter({
       name: 'SignUp',
       component: SignUp
     },
-
+    {
+      path: '/aidbizer/create-my-company',
+      name: 'SignUp',
+      component: () => import('../views/CreateCompanyView.vue'),
+    },
+    {
+      path: '/aidbizer/associate',
+      name: 'Associate',
+      component: () => import('../views/AssociateCompanyView.vue'),
+      auth: true
+    },
 
     {
       path: '/:pathMatch(.*)*',

@@ -1,14 +1,62 @@
 <template>
     <div class="login-page">
         <div class="card p-5 mt-5">
-            <h1 class="mb-5 text-center text-theme">Request</h1>
+            <h1 class="mb-5 text-center text-theme">Register my Company</h1>
             <form class="form-group">
                 <div class="form-group">
-                    <label for="user-email" class="text-uppercase">Email</label>
-                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !validEmail }"
-                        type="text" v-model="email"  @change="onEmailChanged" autocomplete="username">
+                    <label for="user-email" class="text-uppercase">Company Name</label>
+                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !validCompanyName }"
+                        type="text" v-model="company_name"   autocomplete="company_name">
                 </div>
-
+                <div class="form-group">
+                    <label for="user-email" class="text-uppercase">Email</label>
+                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !erros.validEmail }"
+                        type="text" v-model="email"   autocomplete="username">
+                </div>
+                <div class="form-group">
+                        <label for="user-phone">Phone Number</label>
+                        <input id="user-phone" :class="{ 'form-control': true, 'invalid-entry': !errors.validPhone }"
+                            type="text" v-model="cellphone" autocomplete="" @change="onPhoneChange()">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-street-address">Street Address</label>
+                        <input id="user-street-address" class="form-control" v-model="streetAddress1"
+                            autocomplete="street-address">
+                    </div>
+                    <div class="d-flex justif-content-between">
+                        <div class="form-group">
+                            <label for="user-street-address2">Apt.</label>
+                            <input id="user-street-address2" class="form-control" v-model="streetAddress2"
+                                autocomplete="street-address2" @change="onAptChange">
+                        </div>
+                        <span class="space"></span>
+                        <div class="form-group">
+                            <label for="user-city">City</label>
+                            <input id="user-city" class="form-control" v-model="city" autocomplete="city">
+                        </div>
+                        <span class="space"></span>
+                        <div class="form-group">
+                            <label for="zip">Zip</label>
+                            <input id="zip" :class="{ 'form-control': true, 'invalid-entry': !errors.validZip }"
+                                v-model="zip" autocomplete="zip" @change="onZipChange()">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="form-group">
+                            <label for="user-county">County</label>
+                            <input id="user-county" class="form-control" v-model="county" autocomplete="county">
+                        </div>
+                        <span class="space"></span>
+                        <div class="form-group">
+                            <label for="user-state">State</label>
+                            <input id="user-state" class="form-control" v-model="state" autocomplete="state">
+                        </div>
+                        <span class="space"></span>
+                        <div class="form-group">
+                            <label for="user-country">Country</label>
+                            <input id="user-country" class="form-control" v-model="country" autocomplete="country">
+                        </div>
+                    </div>
                 <button class="btn btn-lg bg-theme text-light mt-2 form-control"  @click.prevent="login">Submit Request
                     </button>
 
@@ -48,7 +96,12 @@ export default {
         return {
             email: "",
             password: "",
-            validEmail: true,
+            errors: {
+                validPhone: true,
+                validZip: true,
+                validEmail: true,
+                responseError: false
+            }
         }
     },
     methods: {
@@ -89,8 +142,17 @@ export default {
             const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
             return email.match(regExp) != null;
         },
+        isValidPhone() {
+            const regExp = /^(\+\d{1,2}\s?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+            return this.cellphone.match(regExp) != null || this.cellphone == "";
+        },
+        isValidZipcode() {
+            const regExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+            return this.zip.match(regExp) != null || this.zip == "";
+        },
+
         onEmailChanged() {
-            this.validEmail = this.isValidEmail(this.email)
+            this.errors.validEmail = this.isValidEmail(this.email)
         },
         // onPasswordChanged() {
         //     this.password = sha256(this.password)

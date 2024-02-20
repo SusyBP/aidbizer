@@ -62,8 +62,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from '../router';
 import axios from 'axios';
 import { sha256 } from 'js-sha256';
-const API_URI = "https://localhost:44363/SignIn";
-// const API_URI = "http://beassistant-001-site1.etempurl.com/SignIn";
+const API_URI = "https://localhost:44363";
+// const API_URI = "http://beassistant-001-site1.etempurl.com";
 
 export default {
     name: "SignIn",
@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         async login() {
-            fetch(API_URI, {
+            fetch(API_URI + "/SignIn", {
                 method: 'POST',
                 mode: 'cors',
                 headers: new Headers({
@@ -96,9 +96,12 @@ export default {
                             console.log("Error: Wrong password")
                             break;
                         case '1'://user exit
+                            const user = this.getUser(this.email);
+                            console.log(typeof(user))
                             localStorage.setItem("loggedin", JSON.stringify(true))
-                            localStorage.setItem("username", JSON.stringify(this.email))
-                            router.push({name: 'Home'})
+                            // localStorage.setItem("user", JSON.stringify(user))
+                            // console.log(localStorage.getItem("user"))
+                            // router.push({name: 'Home'})
                             break;
                         default:
                         //does not exit
@@ -110,6 +113,29 @@ export default {
                 });
             
         },
+        async getUser(email)
+        {
+            var user = null;
+            var paramsUrl = "/api/Users?email=";
+            fetch(API_URI + paramsUrl + email, {
+                method: 'GET',
+                mode: 'cors',
+                headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded', 
+                }),
+            })
+                .then((response) => response.text())
+                .then((responseText) => {
+                    console.log(responseText);
+                    localStorage.setItem("user", JSON.stringify(responseText))
+                    user = responseText;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+                return user;
+        },
 
         isValidEmail(email) {
             const regExp = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -118,10 +144,6 @@ export default {
         onEmailChanged() {
             this.validEmail = this.isValidEmail(this.email)
         },
-        // onPasswordChanged() {
-        //     this.password = sha256(this.password)
-        //     console.log(this.password)
-        // },
     }
 }
 </script>

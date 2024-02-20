@@ -5,13 +5,13 @@
             <form class="form-group">
                 <div class="form-group">
                     <label for="user-email" class="text-uppercase">Company Name</label>
-                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !validCompanyName }"
-                        type="text" v-model="company_name"   autocomplete="company_name">
+                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !errors.validCompanyName }"
+                        type="text" v-model="company_name"  @change="onNameChanged()" autocomplete="company_name">
                 </div>
                 <div class="form-group">
                     <label for="user-email" class="text-uppercase">Email</label>
-                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !erros.validEmail }"
-                        type="text" v-model="email"   autocomplete="username">
+                    <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !errors.validEmail }"
+                        type="text" v-model="email"  @change="onEmailChanged()" autocomplete="email">
                 </div>
                 <div class="form-group">
                         <label for="user-phone">Phone Number</label>
@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label for="user-street-address2">Apt.</label>
                             <input id="user-street-address2" class="form-control" v-model="streetAddress2"
-                                autocomplete="street-address2" @change="onAptChange">
+                                autocomplete="street-address2" @change="onAptChange()">
                         </div>
                         <span class="space"></span>
                         <div class="form-group">
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="zip">Zip</label>
                             <input id="zip" :class="{ 'form-control': true, 'invalid-entry': !errors.validZip }"
-                                v-model="zip" autocomplete="zip" @change="onZipChange()">
+                                v-model="zip" autocomplete="zip" @change="onZipChanged()">
                         </div>
                     </div>
                     <div class="d-flex justify-content-between">
@@ -57,22 +57,8 @@
                             <input id="user-country" class="form-control" v-model="country" autocomplete="country">
                         </div>
                     </div>
-                <button class="btn btn-lg bg-theme text-light mt-2 form-control"  @click.prevent="login">Submit Request
-                    </button>
-
-                <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
-                    <span class="text-theme">Are you the owner?</span>
-                    <span class="space"></span>
-                    <router-link :to="{ name: 'SignUp' }" class="register-link">Register my Company</router-link>
-                </div>
-                <div class="policies form-group mt-3 d-flex flex-wrap justify-content-between">
-                    <a href="#" class="terms-of-use">Terms of Use</a>
-                    <span class="mb-1"><svg xmlns="http://www.w3.org/2000/svg" height="5px" width="5px" fill="#0c5f5f"
-                            viewBox="0 0 512 512">
-                            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
-                        </svg></span>
-                    <a href="#" class="privacy-policy">Privacy Policy</a>
-                </div>
+                <button class="btn btn-lg bg-theme text-light mt-2 form-control"  @click.prevent="registerCompany">Register
+                </button>
             </form>
         </div>
     </div>
@@ -88,29 +74,39 @@ const API_URI = "https://localhost:44363/SignIn";
 // const API_URI = "http://beassistant-001-site1.etempurl.com/SignIn";
 
 export default {
-    name: "SignIn",
+    name: "CreateCompanyView",
     components: {
         FontAwesomeIcon,
     },
     data() {
         return {
             email: "",
-            password: "",
+            company_name: "",           
+            cellphone: "",
+            streetAddress1: "",
+            streetAddress2: "",
+            city: "",
+            zip: "",
+            county: "",
+            state: "",
+            country: 0,
+
             errors: {
                 validPhone: true,
                 validZip: true,
                 validEmail: true,
+                validCompanyName: true,
                 responseError: false
             }
         }
     },
     methods: {
-        async login() {
+        async registerCompany() {
             fetch(API_URI, {
                 method: 'POST',
                 mode: 'cors',
                 headers: new Headers({
-                    'Content-Type': 'application/x-www-form-urlencoded', // <-- Specifying the Content-Type
+                    'Content-Type': 'application/json', // <-- Specifying the Content-Type
 
                 }),
                 body: "email=" + this.email + "&password=" + sha256(this.password) // <-- Post parameters
@@ -150,14 +146,25 @@ export default {
             const regExp = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
             return this.zip.match(regExp) != null || this.zip == "";
         },
+        isInterger() {
+            const regExp = /^[0-9]{1,5}$/;
+            return this.streetAddress2.match(regExp) != null || this.streetAddress2 == "";
+        },
 
         onEmailChanged() {
             this.errors.validEmail = this.isValidEmail(this.email)
         },
-        // onPasswordChanged() {
-        //     this.password = sha256(this.password)
-        //     console.log(this.password)
-        // },
+        onNameChanged(){
+            this.errors.validCompanyName = true
+        },
+        onZipChanged(e) {
+            this.errors.validZip = this.isValidZipcode()
+        },
+
+        onAptChange() {
+            console.log(this.isInterger(this.streetAddress2))
+        },
+        
     }
 }
 </script>

@@ -109,14 +109,13 @@ const router = createRouter({
     },
     {
       path: '/aidbizer/create-my-company',
-      name: 'SignUp',
+      name: 'CreateCompany',
       component: () => import('../views/CreateCompanyView.vue'),
     },
     {
       path: '/aidbizer/associate',
       name: 'Associate',
       component: () => import('../views/AssociateCompanyView.vue'),
-      auth: true
     },
 
     {

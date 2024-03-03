@@ -5,8 +5,9 @@
 			<form class="form-group">
 				<div class="form-group">
 					<label for="user-email" class="text-uppercase">Email</label>
-					<input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !erros.validEmail }"
-						type="text" v-model="email" @change="onEmailChanged" autocomplete="username">
+					<input id="user-email"
+						:class="{ 'form-text-input form-control': true, 'invalid-entry': !errors.validEmail }" type="text"
+						v-model="email" @change="onEmailChanged" autocomplete="username">
 				</div>
 
 				<button class="btn btn-lg bg-theme text-light mt-2 form-control" @click.prevent="submit">Submit Request
@@ -15,7 +16,8 @@
 				<div class="form-group mt-3 d-flex flex-wrap justify-content-between">
 					<span class="text-theme">Are you the owner?</span>
 					<span class="space"></span>
-					<router-link :to="{ name: 'SignUp' }" class="register-link">Register my Company</router-link>
+					<router-link :to="{ name: 'CreateCompany' }" class="register-link" @click="submit">Register my
+						Company</router-link>
 				</div>
 				<div class="policies form-group mt-3 d-flex flex-wrap justify-content-between">
 					<a href="#" class="terms-of-use">Terms of Use</a>
@@ -27,6 +29,7 @@
 				</div>
 			</form>
 		</div>
+		<div class="alert alert-success"></div>
 	</div>
 </template> 
 
@@ -35,7 +38,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from '../router';
 import axios from 'axios';
-import { sha256 } from 'js-sha256';
+import Message from '../components/Message.vue';
 const API_URI = "https://localhost:44363/";
 // const API_URI = "http://beassistant-001-site1.etempurl.com/";
 
@@ -47,31 +50,45 @@ export default {
 	data() {
 		return {
 			email: "",
-			password: "",
+			userId: "",
 			errors: {
 				validEmail: true,
 			}
 		}
 	},
-	methods: {
-		async submit(){
-			var requests = getUserRequests();
+	mounted() {
+		var storedUser = localStorage.getItem('user')
 
-		},
-		async getUserRequests() {
-			fetch(API_URI, {
+		if (storedUser != null || storedUser != "") {
+			var user = JSON.parse(storedUser)[0]
+			this.userId = user.Id;
+		}
+	},
+	methods: {
+
+		async submit() {
+			fetch(API_URI + "PostMakeCompanyAssociationRequest", {
 				method: 'POST',
 				mode: 'cors',
 				headers: new Headers({
 					'Content-Type': 'application/json'
-
 				}),
-				body: "email=" + this.email
+				body:  JSON.stringify({IdSolicitante:this.userId , EmailEmpresa: this.email})						
+				
 			})
 				.then((response) => response.text())
 				.then((responseText) => {
-					console.log(responseText);
-					
+
+					var json = JSON.parse(responseText)
+					if (json.length < 1) {
+						//no requests
+						console.log("no requests");
+					}
+					else {
+						console.log(json);
+					}
+
+
 				})
 				.catch((error) => {
 					console.log(error);

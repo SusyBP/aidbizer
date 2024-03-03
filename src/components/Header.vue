@@ -35,7 +35,7 @@ export default {
     name: "Header",
     data() {
         return {
-            username: ""
+            // username: ""
         }
     },
     components: {
@@ -54,13 +54,25 @@ export default {
 
     },
     mounted() {
-        var storedUser = localStorage.getItem('username')
+        // console.log("mounted")
+        // var storedUser = localStorage.getItem('user')
+       
+        // if (storedUser != null || storedUser != "" ) {
+        //     var user = JSON.parse(storedUser)[0]
+        //     this.username = user.Nombre;
+        //     console.log(user.IdEmpresa)
+        // }
+    },
+    computed: {
+        username() {
+        console.log("mounted")
+        var storedUser = localStorage.getItem('user')
+       
         if (storedUser != null || storedUser != "" ) {
-            const chunks = storedUser.split('\"')
-            if (chunks.length > 1) {
-                this.username = chunks[1]
-            };
+            var user = JSON.parse(storedUser)[0]
+            return user.Nombre;          
         }
+    }, 
     }
 }
 </script>

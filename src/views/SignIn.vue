@@ -97,11 +97,11 @@ export default {
                             break;
                         case '1'://user exit
                             const user = this.getUser(this.email);
-                            console.log(typeof(user))
+                            // console.log(typeof(user))
                             localStorage.setItem("loggedin", JSON.stringify(true))
                             // localStorage.setItem("user", JSON.stringify(user))
                             // console.log(localStorage.getItem("user"))
-                            // router.push({name: 'Home'})
+                            router.push({name: 'Home'})
                             break;
                         default:
                         //does not exit
@@ -121,14 +121,13 @@ export default {
                 method: 'GET',
                 mode: 'cors',
                 headers: new Headers({
-                    'Content-Type': 'application/x-www-form-urlencoded', 
+                    'Content-Type': 'application/json', 
                 }),
             })
                 .then((response) => response.text())
                 .then((responseText) => {
-                    console.log(responseText);
-                    localStorage.setItem("user", JSON.stringify(responseText))
-                    user = responseText;
+                    var user = JSON.parse(responseText);
+                    localStorage.setItem("user", JSON.stringify(user))
                 })
                 .catch((error) => {
                     console.log(error);

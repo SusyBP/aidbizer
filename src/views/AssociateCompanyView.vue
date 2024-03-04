@@ -1,6 +1,7 @@
 <template>
-	<div class="login-page">
+	<div class="association-page d-flex justify-content-center align-items-center">
 		<div class="card p-5 mt-5">
+			<Message :message="msgText" :class="msgCategory"></Message>
 			<h1 class="mb-5 text-center text-theme">Associate</h1>
 			<form class="form-group">
 				<div class="form-group">
@@ -10,7 +11,8 @@
 						v-model="email" @change="onEmailChanged" autocomplete="username">
 				</div>
 
-				<button class="btn btn-lg bg-theme text-light mt-2 form-control" @click.prevent="submit">Submit Request
+				<button class="btn btn-lg bg-theme text-light mt-2 form-control" @click.prevent="submit">
+					<span hidden id="spinner" class="spinner-border spinner-border-sm mr-1"></span>Submit Request
 				</button>
 
 				<div class="form-group mt-3 d-flex flex-wrap justify-content-between">
@@ -25,11 +27,11 @@
 							viewBox="0 0 512 512">
 							<path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z" />
 						</svg></span>
-					<a href="#" class="privacy-policy">Privacy Policy</a>
+					<a href="#" class="help">Help</a>
 				</div>
 			</form>
 		</div>
-		<div class="alert alert-success"></div>
+
 	</div>
 </template> 
 
@@ -46,6 +48,7 @@ export default {
 	name: "AssociateToCompany",
 	components: {
 		FontAwesomeIcon,
+		Message
 	},
 	data() {
 		return {
@@ -53,45 +56,84 @@ export default {
 			userId: "",
 			errors: {
 				validEmail: true,
-			}
+			},
+			msgText: "",
+			msgCategory: ""
+
 		}
 	},
 	mounted() {
 		var storedUser = localStorage.getItem('user')
 
 		if (storedUser != null || storedUser != "") {
-			var user = JSON.parse(storedUser)[0]
-			this.userId = user.Id;
+			var user = JSON.parse(storedUser)
+            if(user){
+				 this.userId = user[0].Id;
+            }
+            else{
+                router.push({name: 'SignIn'})
+            }
+			
+			
 		}
 	},
 	methods: {
 
 		async submit() {
+			var spinner = document.getElementById('spinner')
+			spinner.removeAttribute('hidden')
 			fetch(API_URI + "PostMakeCompanyAssociationRequest", {
 				method: 'POST',
 				mode: 'cors',
 				headers: new Headers({
 					'Content-Type': 'application/json'
 				}),
-				body:  JSON.stringify({IdSolicitante:this.userId , EmailEmpresa: this.email})						
-				
+				body: JSON.stringify({ IdSolicitante: this.userId, EmailEmpresa: this.email })
+
 			})
 				.then((response) => response.text())
 				.then((responseText) => {
-
 					var json = JSON.parse(responseText)
-					if (json.length < 1) {
-						//no requests
-						console.log("no requests");
-					}
-					else {
-						console.log(json);
-					}
+					console.log(json)
+					if (json) {
+						this.msgText = json.msg
+						switch (json.status) {
+							case 0:
+								if (json.requestStatus == 'Enviado') {
+									this.msgText += 'Sent'
+									this.msgCategory = "alert alert-success"
+								}
+								else if (json.requestStatus == 'Recibido') {
+									this.msgText += 'Received'
+									this.msgCategory = "alert alert-success"
+								}
+								else if (json.requestStatus == 'Calcelado') {
+									this.msgText += 'Canceled'
+									this.msgCategory = "alert alert-danger"
+								}
+								else if (json.requestStatus == 'Aceptado') {
+									this.msgText += 'Accepted'
+									this.msgCategory = "alert alert-success"
+								}
+								break;
+							case 1:
+								this.msgCategory = "alert alert-success"
+								break;
+							case -1:
+								this.msgCategory = "alert alert-danger"
+								break;
+							default:
+								break;
+						}
 
-
+					}
+					spinner.setAttribute('hidden', "")
+					
 				})
 				.catch((error) => {
-					console.log(error);
+					this.msgText = error
+					this.msgCategory = "alert alert-danger"
+					spinner.setAttribute('hidden', '')
 				});
 
 		},
@@ -135,7 +177,7 @@ h4 {
 	align-items: center;
 }
 
-.login-page a {
+.association-page a {
 	text-decoration: none;
 	color: var(--theme-green);
 }

@@ -35,7 +35,6 @@ export default {
     name: "Header",
     data() {
         return {
-            // username: ""
         }
     },
     components: {
@@ -69,8 +68,15 @@ export default {
         var storedUser = localStorage.getItem('user')
        
         if (storedUser != null || storedUser != "" ) {
-            var user = JSON.parse(storedUser)[0]
-            return user.Nombre;          
+            var user = JSON.parse(storedUser)
+            console.log(user)
+            if(user){
+                 return user[0].Nombre;
+            }
+            else{
+                router.push({name: 'SignIn'})
+            }
+                     
         }
     }, 
     }

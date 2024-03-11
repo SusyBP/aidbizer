@@ -95,7 +95,7 @@ const router = createRouter({
           component: () => import('../views/Contacts.vue'),
           auth: true
         },
-      ]
+      ],
     },
     {
       path: '/aidbizer/signin',

@@ -16,7 +16,7 @@
             </div>
             <div class="logged-user-info">
                 <div class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
-                    <span class="logged-user-name">{{ username }}</span>
+                    <span class="logged-user-name">{{ userinfo }}</span>
                     <span class="logged-user-avatar"><font-awesome-icon :icon="['fas', 'circle-user']" /></span>
                 </div>
                 <ul class="dropdown-menu">
@@ -32,11 +32,11 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "../router"
 export default {
-    name: "Header",
-    data() {
-        return {
-        }
+    name: "Header", 
+    props: {
+      'userinfo': String
     },
+   
     components: {
         FontAwesomeIcon
     },
@@ -45,6 +45,8 @@ export default {
         logout() {
             console.log("logging out")
             this.$emit("logout")
+            localStorage.setItem('loggedin', JSON.stringify(false))
+            localStorage.setItem('user', JSON.stringify({}))
             router.push({ name: "SignIn" })
         },
         submit() {
@@ -53,7 +55,7 @@ export default {
 
     },
     mounted() {
-        // console.log("mounted")
+        console.log(this.userinfo)
         // var storedUser = localStorage.getItem('user')
        
         // if (storedUser != null || storedUser != "" ) {
@@ -62,24 +64,25 @@ export default {
         //     console.log(user.IdEmpresa)
         // }
     },
-    computed: {
-        username() {
-        console.log("mounted")
-        var storedUser = localStorage.getItem('user')
+    // computed: {
+    //     username() {
+    //         return user;
+        // console.log("mounted")
+        // var storedUser = localStorage.getItem('user')
        
-        if (storedUser != null || storedUser != "" ) {
-            var user = JSON.parse(storedUser)
-            console.log(user)
-            if(user){
-                 return user[0].Nombre;
-            }
-            else{
-                router.push({name: 'SignIn'})
-            }
+        // if (storedUser != null || storedUser != "" ) {
+        //     var user = JSON.parse(storedUser)
+           
+        //     if(user){
+        //          return user[0].Nombre;
+        //     }
+        //     else{
+        //         router.push({name: 'SignIn'})
+        //     }
                      
-        }
-    }, 
-    }
+        // }
+    // }, 
+    // }
 }
 </script>
 <style scoped>

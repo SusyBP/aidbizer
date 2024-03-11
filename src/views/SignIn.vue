@@ -95,16 +95,16 @@ export default {
                         case '0'://wrong password
                             console.log("Error: Wrong password")
                             break;
-                        case '1'://user exit
-                            const user = this.getUser(this.email);
-                            // console.log(typeof(user))
-                            localStorage.setItem("loggedin", JSON.stringify(true))
-                            // localStorage.setItem("user", JSON.stringify(user))
-                            // console.log(localStorage.getItem("user"))
-                            router.push({name: 'Home'})
+                        case '-1'://does NOT exit
+                            // const user = this.getUser(this.email);
+                            console.log("No user")
                             break;
                         default:
-                        //does not exit
+                        //does exit
+                        console.log("Does Exist")
+                        localStorage.setItem("loggedin", JSON.stringify(true))
+                        localStorage.setItem("user", JSON.stringify(responseText))
+                        router.push({name: 'Home'})
                             break;
                     }
                 })

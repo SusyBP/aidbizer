@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="header">
             <!-- <slot name="header"> -->
-            <Header></Header>
+            <Header :userinfo="userinfo"></Header>
             <!-- </slot> -->
         </div>
         <div class="main">
@@ -13,7 +13,19 @@
 
 <script setup>
 import Header from './Header.vue'
-import { defineProps, onMounted } from 'vue';
+import { defineProps, onMounted, ref, reactive, onUpdated} from 'vue';
+
+
+const props = defineProps({
+    userinfo: { type: String, required: true },
+})
+// var userinfo = reactive(JSON.parse(localStorage.getItem("user"))) 
+
+// onMounted(() => {
+//     // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
+//     userinfo = JSON.parse(localStorage.getItem("user"))
+// })
+
 
 
 </script>

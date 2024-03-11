@@ -1,14 +1,21 @@
 <template>
     <div class="app-main-content">
         <Sidebar @logout="logout"></Sidebar>
-        <router-view></router-view>
+        <router-view :userinfo="userinfo"></router-view>
     </div>
 </template>
 
 <script setup>
 
-import { ref, defineEmits } from 'vue'
+import { ref, defineEmits, defineProps, onMounted , reactive} from 'vue'
 import Sidebar from './Sidebar.vue';
+
+var userinfo = reactive(JSON.parse(localStorage.getItem("user"))) 
+
+onMounted(() => {
+    // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
+    userinfo = JSON.parse(localStorage.getItem("user"))
+})
 
 const isLoggedIn = ref(localStorage.getItem("loggedin") === "true")
 
@@ -17,7 +24,9 @@ const logout = () => {
     localStorage.setItem('loggedin', isLoggedIn.value);
     console.log("logginout ", 'isLogguedIn: ', isLoggedIn.value);
 }
-const emit = defineEmits(["render"])
+// const emit = defineEmits(["render"])
+
+
 // const login = ()=>{
 //     emit("render")
 // forceRender()

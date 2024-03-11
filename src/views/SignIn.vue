@@ -1,12 +1,13 @@
 <template>
     <div class="login-page">
         <div class="card p-5 mt-5">
+            <Message :message="msgText" :class="msgCategory"></Message>
             <h1 class="mb-5 text-center text-theme">Sign In</h1>
             <form class="form-group">
                 <div class="form-group">
                     <label for="user-email" class="text-uppercase">Email</label>
                     <input id="user-email" :class="{ 'form-text-input form-control': true, 'invalid-entry': !validEmail }"
-                        type="text" v-model="email"  @change="onEmailChanged" autocomplete="username">
+                        type="text" v-model="email" @change="onEmailChanged" autocomplete="username">
                 </div>
                 <div class="form-group">
                     <label for="user-password" class="text-uppercase">Password</label>
@@ -14,13 +15,17 @@
                         autocomplete="password">
                 </div>
 
-                <button class="btn btn-lg bg-theme text-light mt-2 form-control"  @click.prevent="login">Sign
+                <button class="btn btn-lg bg-theme text-light mt-2 form-control" @click.prevent="login"><span hidden
+                        id="spinner" class="spinner-border spinner-border-sm mr-1"></span>Sign
                     In</button>
 
                 <div class="form-group mt-3 d-flex flex-wrap justify-content-between">
                     <span class="text-theme">Not account yet?</span>
                     <span class="space"></span>
                     <router-link :to="{ name: 'SignUp' }" class="register-link">Sign up</router-link>
+                </div>
+                <div class="form-group mt-3 d-flex flex-wrap justify-content-center">  
+                    <router-link :to="{ name: 'SignUp' }" class="register-link">Forgot Password?</router-link>
                 </div>
 
                 <div class="external-login form-group mt-3">
@@ -64,21 +69,28 @@ import axios from 'axios';
 import { sha256 } from 'js-sha256';
 const API_URI = "https://localhost:44363";
 // const API_URI = "http://beassistant-001-site1.etempurl.com";
+import Message from '../components/Message.vue';
 
 export default {
     name: "SignIn",
     components: {
         FontAwesomeIcon,
+        Message,
     },
     data() {
         return {
             email: "",
             password: "",
             validEmail: true,
+            msgText: "",
+            msgCategory: ""
         }
     },
     methods: {
         async login() {
+
+            var spinner = document.getElementById('spinner')
+            spinner.removeAttribute('hidden')
             fetch(API_URI + "/SignIn", {
                 method: 'POST',
                 mode: 'cors',
@@ -93,35 +105,36 @@ export default {
                     console.log(responseText);
                     switch (responseText) {
                         case '0'://wrong password
-                            console.log("Error: Wrong password")
+                            this.msgText = "Wrong Password"
+                            this.msgCategory = "alert alert-danger"
                             break;
                         case '-1'://does NOT exit
                             // const user = this.getUser(this.email);
-                            console.log("No user")
+                            this.msgText = "Invalid Credentials"
+                            this.msgCategory = "alert alert-danger"
                             break;
                         default:
-                        //does exit
-                        console.log("Does Exist")
-                        localStorage.setItem("loggedin", JSON.stringify(true))
-                        localStorage.setItem("user", JSON.stringify(responseText))
-                        router.push({name: 'Home'})
+                            //does exit
+                            localStorage.setItem("loggedin", JSON.stringify(true))
+                            localStorage.setItem("user", JSON.stringify(responseText))
+                            router.push({ name: 'Home' })
                             break;
                     }
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-            
+            spinner.setAttribute('hidden', "")
+
         },
-        async getUser(email)
-        {
+        async getUser(email) {
             var user = null;
             var paramsUrl = "/api/Users?email=";
             fetch(API_URI + paramsUrl + email, {
                 method: 'GET',
                 mode: 'cors',
                 headers: new Headers({
-                    'Content-Type': 'application/json', 
+                    'Content-Type': 'application/json',
                 }),
             })
                 .then((response) => response.text())
@@ -133,7 +146,7 @@ export default {
                     console.log(error);
                 });
 
-                return user;
+            return user;
         },
 
         isValidEmail(email) {
@@ -185,7 +198,7 @@ h4 {
 }
 
 button {
-    background-color:var(--theme-green) !important; 
+    background-color: var(--theme-green) !important;
 }
 
 .register-link {

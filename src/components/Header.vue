@@ -16,7 +16,7 @@
             </div>
             <div class="logged-user-info">
                 <div class="nav-link dropdown-toggle btn" data-bs-toggle="dropdown">
-                    <span class="logged-user-name">{{ userinfo }}</span>
+                    <span class="logged-user-name">{{ username }}</span>
                     <span class="logged-user-avatar"><font-awesome-icon :icon="['fas', 'circle-user']" /></span>
                 </div>
                 <ul class="dropdown-menu">
@@ -64,25 +64,11 @@ export default {
         //     console.log(user.IdEmpresa)
         // }
     },
-    // computed: {
-    //     username() {
-    //         return user;
-        // console.log("mounted")
-        // var storedUser = localStorage.getItem('user')
-       
-        // if (storedUser != null || storedUser != "" ) {
-        //     var user = JSON.parse(storedUser)
-           
-        //     if(user){
-        //          return user[0].Nombre;
-        //     }
-        //     else{
-        //         router.push({name: 'SignIn'})
-        //     }
-                     
-        // }
-    // }, 
-    // }
+    computed: {
+            username() {
+                return JSON.parse(this.userinfo)[0].Nombre;
+        }, 
+    }
 }
 </script>
 <style scoped>

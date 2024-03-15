@@ -96,6 +96,7 @@ const router = createRouter({
           auth: true
         },
       ],
+      props: true
     },
     {
       path: '/aidbizer/signin',

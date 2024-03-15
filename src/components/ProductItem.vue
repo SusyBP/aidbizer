@@ -42,10 +42,9 @@ export default {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 30% auto;
-  gap: 2rem;
-  padding: 1rem;
+    display: grid;
+    grid-template-columns: 40% auto;
+    gap: 1rem;
 }
 
 grid-item-1 {
@@ -70,7 +69,7 @@ grid-item-2 {
 @media (min-width: 430px) and (max-width: 576px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 25% auto;
+    grid-template-columns: 40% auto;
     gap: 15px;
     padding: 1rem;
   }
@@ -98,7 +97,7 @@ grid-item-2 {
 @media (min-width: 1000px) {
   .grid-container {
     display: grid;
-    grid-template-columns: 25% auto;
+    grid-template-columns: 40% auto;
     gap: 15px;
     padding: 1rem;
   }

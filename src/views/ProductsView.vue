@@ -1,23 +1,30 @@
 <template>
     <Layout>
-        <!-- <template #sidebar>
-            <Sidebar></Sidebar>
-        </template> -->
         <template #main>
-            <ProductList :idEmpresa="12"></ProductList>
+            <ProductList :userinfo="userinfo"></ProductList>
         </template>
     </Layout>
 </template>
 <script>
 import Layout from '../components/Layout.vue';
-// import Sidebar from '../components/Sidebar.vue';
 import ProductList from '../components/ProductList.vue';
-export default{
+export default {
     name: 'ProductsView',
-    components:{
-    Layout,
-    // Sidebar,
-    ProductList
-}
+    components: {
+        Layout,
+        ProductList
+    },
+    props:{
+        userinfo: String
+    }
+    ,
+    computed: {
+            idEmpresa() {
+            // const withoutSquareBraces = this.userinfo.replace('/\[|\]/g', '')
+            // const json = JSON.parse(withoutSquareBraces)
+            // return json[0].idEmpresa
+            return this.userinfo[0].idEmpresa
+        }, 
+    }
 }
 </script>

@@ -7,12 +7,17 @@
 
 <script setup>
 
-import { ref, defineEmits, defineProps, onMounted , reactive} from 'vue'
+import { ref, defineEmits, defineProps, onMounted ,onUpdated, reactive} from 'vue'
 import Sidebar from './Sidebar.vue';
 
-var userinfo = reactive(JSON.parse(localStorage.getItem("user"))) 
+var userinfo = reactive(JSON.parse(localStorage.getItem("user")))
 
 onMounted(() => {
+    // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
+    userinfo = JSON.parse(localStorage.getItem("user"))
+})
+
+onUpdated(() => {
     // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
     userinfo = JSON.parse(localStorage.getItem("user"))
 })

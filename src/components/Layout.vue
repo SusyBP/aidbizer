@@ -6,7 +6,7 @@
             <!-- </slot> -->
         </div>
         <div class="main">
-            <slot name="main"></slot>
+            <slot :userinfo="userinfo" name="main"></slot>
         </div>
     </div>
 </template>
@@ -17,14 +17,19 @@ import { defineProps, onMounted, ref, reactive, onUpdated} from 'vue';
 
 
 const props = defineProps({
-    userinfo: { type: String, required: true },
+    userinfo: String,
 })
-// var userinfo = reactive(JSON.parse(localStorage.getItem("user"))) 
+var userinfo = ref(JSON.parse(localStorage.getItem("user")))
 
-// onMounted(() => {
-//     // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
-//     userinfo = JSON.parse(localStorage.getItem("user"))
-// })
+onMounted(() => {
+    // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
+    userinfo = JSON.parse(localStorage.getItem("user"))
+})
+
+onUpdated(() => {
+    // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
+    userinfo = JSON.parse(localStorage.getItem("user"))
+})
 
 
 

@@ -88,7 +88,6 @@ export default {
     },
     methods: {
         async login() {
-
             var spinner = document.getElementById('spinner')
             spinner.removeAttribute('hidden')
             fetch(API_URI + "/SignIn", {
@@ -102,7 +101,7 @@ export default {
             })
                 .then((response) => response.text())
                 .then((responseText) => {
-                    console.log(responseText);
+                    // console.log(responseText);
                     switch (responseText) {
                         case '0'://wrong password
                             this.msgText = "Wrong Password"
@@ -116,11 +115,12 @@ export default {
                         default:
                             //does exit
                             localStorage.setItem("loggedin", JSON.stringify(true))
-                            localStorage.setItem("user", JSON.stringify(responseText))
+                          
+                            console.log(typeof(responseText))
+                            localStorage.setItem("user", responseText)
                             router.push({ name: 'Home' })
                             break;
-                    }
-                })
+        }})
                 .catch((error) => {
                     console.log(error);
                 });

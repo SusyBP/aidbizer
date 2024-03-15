@@ -32,11 +32,11 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import router from "../router"
 export default {
-    name: "Header", 
+    name: "Header",
     props: {
-      'userinfo': String
+        'userinfo': String
     },
-   
+
     components: {
         FontAwesomeIcon
     },
@@ -55,9 +55,9 @@ export default {
 
     },
     mounted() {
-        console.log(this.userinfo)
+        console.log("userinfo", this.userinfo)
         // var storedUser = localStorage.getItem('user')
-       
+
         // if (storedUser != null || storedUser != "" ) {
         //     var user = JSON.parse(storedUser)[0]
         //     this.username = user.Nombre;
@@ -65,9 +65,12 @@ export default {
         // }
     },
     computed: {
-            username() {
-                return JSON.parse(this.userinfo)[0].Nombre;
-        }, 
+        username() {
+            // const withoutSquareBraces = this.userinfo.replace('/\[|\]/g', '')
+            // const json = JSON.parse(withoutSquareBraces)
+            // return json[0].Nombre
+            return this.userinfo[0].Nombre
+        },
     }
 }
 </script>

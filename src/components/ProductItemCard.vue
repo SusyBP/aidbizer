@@ -1,5 +1,5 @@
 <template>
-  <div class="m-2">
+  <div class="card-deck m-2">
     <div class="card mb-4">
       <div class="card-header">
         <img class="img-fluid product-img" :src="computedImg" alt="alt" :id="'image_'.concat(id)" />
@@ -58,8 +58,8 @@ export default {
 
 .product-img {
   padding: 0;
-  width: 6rem;
-  height: 6rem;
+  width: 10rem;
+  height: auto;
   /* max-width: 150px; */
   border: 2px solid #bdbec0;
 }
@@ -69,9 +69,19 @@ export default {
   background-color: white;
 }
 
-.card{
-  background-color: white;
-  
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.card {
+  flex: 1 0 auto;
+}
+
+.card-header{
+  padding: 0;
 }
 
 .shadow-box {

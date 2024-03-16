@@ -1,6 +1,10 @@
 <template>
     <Layout>
         <template #main>
+            <div class="view-title-box">
+                <h4 class="view-title">Products</h4>
+                <span class="view-title-total">25 products in total</span>
+            </div>
             <ProductList :userinfo="userinfo"></ProductList>
         </template>
     </Layout>

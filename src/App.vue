@@ -1,7 +1,5 @@
 <template>
-	<!-- <Sidebar @logout="logout"></Sidebar-->
 	<router-view></router-view>
-	<!-- <MainComponent @render="render"></MainComponent> -->
 </template>
 
 <script setup>
@@ -112,6 +110,10 @@ button {
 .btn-theme-green {
 	background-color: var(--theme-green) !important;
 }
+.text-theme{
+	color: var(--theme-green);
+}
+
 .btn-theme-gold {
 	// background-color: var(--gold-yellow_6) !important;
 	// color: white !important;

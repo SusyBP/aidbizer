@@ -116,7 +116,7 @@ export default {
                             //does exit
                             localStorage.setItem("loggedin", JSON.stringify(true))
                           
-                            console.log(typeof(responseText))
+                            // console.log(typeof(responseText))
                             localStorage.setItem("user", responseText)
                             router.push({ name: 'Home' })
                             break;

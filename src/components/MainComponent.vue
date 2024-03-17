@@ -17,10 +17,6 @@ onMounted(() => {
     userinfo = JSON.parse(localStorage.getItem("user"))
 })
 
-onUpdated(() => {
-    // console.log((JSON.parse(localStorage.getItem("user")))[0].Nombre)
-    userinfo = JSON.parse(localStorage.getItem("user"))
-})
 
 const isLoggedIn = ref(localStorage.getItem("loggedin") === "true")
 

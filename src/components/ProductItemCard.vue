@@ -1,13 +1,13 @@
 <template>
   <div class="card-deck m-2">
-    <div class="card mb-4">
+    <div class="card mb-4" @click = "onClick">
       <div class="card-header">
         <img class="img-fluid product-img" :src="computedImg" alt="alt" :id="'image_'.concat(id)" />
       </div>
       <div class="card-body">
         <div class="d-flex flex-column">
-          <h5 class="product-name">{{ strimedName }}</h5>
-          <div class="product-category">{{ strimedDenominacion }}</div>
+          <div class="product-name">{{ strimedName }}</div>
+          <!-- <div class="product-category">{{ strimedDenominacion }}</div> -->
           <div class="product-price">${{ Precio }}</div>
         </div>
       </div>
@@ -16,6 +16,7 @@
 </template>
 <script>
 import { onMounted } from 'vue';
+
 export default {
   name: "ProductItemCard",
   components: {},
@@ -28,7 +29,9 @@ export default {
     Foto: String,//base64
   },
   data() {
-    return {};
+    return {
+      showEdit: false
+    };
   },
   computed: {
     computedImg() {
@@ -38,10 +41,14 @@ export default {
       return (this.Nombre.length > 15)?this.Nombre.substring(0, 15):this.Nombre
     },
     strimedDenominacion() {
-      return (this.Denominacion.length > 15)?this.Denominacion.substring(0, 15):this.Nombre
+      return (this.Denominacion.length > 15)?this.Denominacion.substring(0, 15):this.Denominacion
     },
   },
-
+  methods:{
+    onClick(){
+      console.log('emit')
+    }
+  }
 };
 </script>
 <style scoped>
@@ -58,10 +65,10 @@ export default {
 
 .product-img {
   padding: 0;
-  width: 10rem;
-  height: auto;
+  width: 11rem;
+  height: 8rem;
   /* max-width: 150px; */
-  border: 2px solid #bdbec0;
+  /* border: 2px solid #bdbec0; */
 }
 
 .product-card {
@@ -78,10 +85,16 @@ export default {
 
 .card {
   flex: 1 0 auto;
+  --bs-card-border-color: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .card-header{
   padding: 0;
+
+}
+.card-body{
+  height: 5rem;
 }
 
 .shadow-box {
@@ -91,13 +104,13 @@ export default {
 }
 
 .product-name {
-  max-width: 6rem;
+  /* max-width: 6rem; */
 }
 
 .product-price {
   color: #1f615a;
   font-weight: bold;
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  /* margin-top: 0.5rem; */
 }
 </style>
